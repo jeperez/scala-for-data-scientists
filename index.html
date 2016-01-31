@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body style="!important;">
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><div style="border-radius: 10px; background: #EEEEEE; padding: 20px; text-align: center; font-size: 1.5em">
+  <big><b>scalaz "For the Rest of Us"</b></big> </br>
+  </br>
+  Adam Rosien <br/>
+  <code>arosien@box.com && adam@rosien.net</code> <br/>
+  <br/>
+  <code>@arosien #scalasv #scalaz</code>
+</div>
+
+<p><img alt="Box" src="img/box.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p><img alt="" src="img/ma.jpg" /></p>
+<p><code>scalaz</code> has a (undeserved?) reputation as being, well, kind of crazy.</p>
+<p>So this talk is specifically <em>not</em> about:</p>
+<ul>
+<li>Functors, Monads, or Applicative Functors</li>
+<li>Category theory</li>
+<li>Other really cool stuff you should learn about (eventually)</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>This talk <em>is</em> about <strong>every-day situations</strong> where <code>scalaz</code> can:</p>
+<ul>
+<li><em>Reduce</em> syntactical noise</li>
+<li>Provide useful types that solve <em>many classes</em> of problems</li>
+<li><em>Add</em> type-safety with minimal "extra work"</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Getting Started</h1></header>
+            
+            
+            <section><p>In <code>build.sbt</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">libraryDependencies</span> <span class="o">+=</span> 
+  <span class="s">&quot;org.scalaz&quot;</span> <span class="o">%%</span> <span class="s">&quot;scalaz-core&quot;</span> <span class="o">%</span> <span class="s">&quot;6.0.4&quot;</span>
+</pre></div>
+</td></tr></table>
+<p>Then:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scalaz._</span>
+<span class="k">import</span> <span class="nn">Scalaz._</span>
+
+<span class="c1">// profit</span>
+</pre></div>
+</td></tr></table>
+<p class="notes">This is <em>scalaz 6.</em> Also, assume this is imported in all code snippets.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p>The goal: cache the result of an expensive computation.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="n">expensive</span><span class="o">(</span><span class="n">foo</span><span class="k">:</span> <span class="kt">Foo</span><span class="o">)</span><span class="k">:</span> <span class="kt">Bar</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="k">val</span> <span class="n">f</span><span class="k">:</span> <span class="kt">Foo</span>
+
+<span class="n">expensive</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// $$$</span>
+<span class="n">expensive</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// $$$</span>
+<span class="o">...</span>
+</pre></div>
+</td></tr></table>
+<p class="notes">Assumption: <code>expensive</code> produces the same output for every input, i.e., is referentially-transparent.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p>Typically you might use a <code>mutable.Map</code> to cache results:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">cache</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">mutable</span><span class="o">.</span><span class="nc">Map</span><span class="o">[</span><span class="kt">Foo</span>, <span class="kt">Bar</span><span class="o">]()</span>
+
+<span class="n">cache</span><span class="o">.</span><span class="n">getOrElseUpdate</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">expensive</span><span class="o">(</span><span class="n">f</span><span class="o">))</span> <span class="c1">// $$$</span>
+<span class="n">cache</span><span class="o">.</span><span class="n">getOrElseUpdate</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">expensive</span><span class="o">(</span><span class="n">f</span><span class="o">))</span> <span class="c1">// 1¢</span>
+</pre></div>
+</td></tr></table>
+<p class="notes">Downsides: the cache is not the same type as the function: <code>Foo =&gt; Bar</code> vs. <code>Map[Foo, Bar]</code>. It's also not DRY.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p>You can try to make it look like a regular function, avoiding the <code>getOrElseUpdate()</code> call:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">cache</span><span class="k">:</span> <span class="kt">Foo</span> <span class="o">=&gt;</span> <span class="nc">Bar</span> <span class="k">=</span> 
+  <span class="n">collection</span><span class="o">.</span><span class="n">mutable</span><span class="o">.</span><span class="nc">Map</span><span class="o">[</span><span class="kt">Foo</span>, <span class="kt">Bar</span><span class="o">]()</span>
+    <span class="o">.</span><span class="n">withDefault</span><span class="o">(</span><span class="n">expensive</span> <span class="k">_</span><span class="o">)</span>
+
+<span class="n">cache</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// $$$ (miss &amp; NO fill)</span>
+<span class="n">cache</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// $$$ (miss &amp; NO fill)</span>
+</pre></div>
+</td></tr></table>
+<p>But it doesn't actually cache.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p>In <code>scalaz</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="n">expensive</span><span class="o">(</span><span class="n">foo</span><span class="k">:</span> <span class="kt">Foo</span><span class="o">)</span><span class="k">:</span> <span class="kt">Bar</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1">// Memo[Foo, Bar]</span>
+<span class="k">val</span> <span class="n">memo</span> <span class="k">=</span> <span class="n">immutableHashMapMemo</span> <span class="o">{</span> 
+  <span class="n">foo</span><span class="k">:</span> <span class="kt">Foo</span> <span class="o">=&gt;</span> <span class="n">expensive</span><span class="o">(</span><span class="n">foo</span><span class="o">)</span> 
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">f</span><span class="k">:</span> <span class="kt">Foo</span>
+
+<span class="n">memo</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// $$$ (cache miss &amp; fill)</span>
+<span class="n">memo</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="c1">// 1¢  (cache hit)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p>Many memoization strategies:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">immutableHashMapMemo</span><span class="o">[</span><span class="kt">K</span>, <span class="kt">V</span><span class="o">]</span>
+
+<span class="n">mutableHashMapMemo</span><span class="o">[</span><span class="kt">K</span>, <span class="kt">V</span><span class="o">]</span>
+
+<span class="c1">// remove + gc unreferenced entries</span>
+<span class="n">weakHashMapMemo</span><span class="o">[</span><span class="kt">K</span>, <span class="kt">V</span><span class="o">]</span>
+
+<span class="c1">// fixed size, K = Int</span>
+<span class="n">arrayMemo</span><span class="o">[</span><span class="kt">V</span><span class="o">](</span><span class="n">size</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+</pre></div>
+</td></tr></table>
+<p class="notes">Super-nerdy: the memoizing strategies are just functions of <code>K =&gt; V</code>, which means the generic <code>memo()</code> constructor has the same signature as the Y-combinator!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Memoization</h1></header>
+            
+            
+            <section><p><code>scalaz</code> memoization:</p>
+<ul>
+<li>Pros: uniform types for memoizer and function</li>
+<li>Cons: less low-level control</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+            <section><p>Remove the need for temporary variables:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span>
+<span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">B</span> <span class="o">=&gt;</span> <span class="n">C</span>
+
+<span class="c1">// using temps:</span>
+<span class="k">val</span> <span class="n">a</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">g</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+
+<span class="c1">// or via composition, which is a bit ugly:</span>
+<span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">g</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">))</span>
+
+<span class="c1">// &quot;unix-pipey&quot;!</span>
+<span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">a</span> <span class="o">|&gt;</span> <span class="n">f</span> <span class="o">|&gt;</span> <span class="n">g</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+            <section><p>When you just can't stand all that (keyboard) typing: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">p</span><span class="k">:</span> <span class="kt">Boolean</span>
+
+<span class="c1">// ternary-operator-ish</span>
+<span class="n">p</span> <span class="o">?</span> <span class="s">&quot;yes&quot;</span> <span class="o">|</span> <span class="s">&quot;no&quot;</span> <span class="c1">// if (p) &quot;yes&quot; else &quot;no&quot;</span>
+
+<span class="k">val</span> <span class="n">o</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+
+<span class="n">o</span> <span class="o">|</span> <span class="s">&quot;meh&quot;</span>        <span class="c1">// o.getOrElse(&quot;meh&quot;)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+            <section><p>More legible (and more type-safe):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// scala</span>
+<span class="nc">Some</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>  <span class="c1">// Some[String]</span>
+<span class="nc">None</span>         <span class="c1">// None.type</span>
+
+<span class="c1">// scalaz</span>
+<span class="s">&quot;foo&quot;</span><span class="o">.</span><span class="n">some</span>   <span class="c1">// Option[String]</span>
+<span class="n">none</span>         <span class="c1">// Option[Nothing], oops!</span>
+<span class="n">none</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="c1">// Option[String]</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+            <section><p>More legible (and more type-safe):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// scala</span>
+<span class="nc">Right</span><span class="o">(</span><span class="mi">42</span><span class="o">)</span>   <span class="c1">// Right[Nothing, Int], oops!</span>
+<span class="nc">Left</span><span class="o">(</span><span class="s">&quot;meh&quot;</span><span class="o">)</span> <span class="c1">// Left[String, Nothing], oops!</span>
+<span class="nc">Right</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">](</span><span class="mi">42</span><span class="o">)</span>   <span class="c1">// verbose</span>
+<span class="nc">Left</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">](</span><span class="s">&quot;meh&quot;</span><span class="o">)</span> <span class="c1">// verbose</span>
+
+<span class="c1">// scalaz</span>
+<span class="mf">42.</span><span class="n">right</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="c1">// Either[String, Int]</span>
+<span class="s">&quot;meh&quot;</span><span class="o">.</span><span class="n">left</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>  <span class="c1">// Either[String, Int]</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Style</h1></header>
+            
+            
+            <section><p>Pros: less noise, more expressive, more type-safe</p>
+<p>Cons: you have to know these operators</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>This isn't good:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">SSN</span><span class="o">(</span>
+  <span class="n">first3</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> 
+  <span class="n">second2</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> 
+  <span class="n">third4</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="nc">SSN</span><span class="o">(</span><span class="mi">123</span><span class="o">,</span> <span class="mi">123</span><span class="o">,</span> <span class="mi">1234</span><span class="o">)</span> 
+<span class="c1">//       ^^^ noo!</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>This shouldn't be possible:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Version</span><span class="o">(</span><span class="n">major</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">minor</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="nc">Version</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> 
+<span class="c1">//         ^^ noooo!</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>Meh:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Dependency</span><span class="o">(</span>
+  <span class="n">organization</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+  <span class="n">artifactId</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+  <span class="n">version</span><span class="k">:</span> <span class="kt">Version</span><span class="o">)</span>
+
+<span class="nc">Dependency</span><span class="o">(</span><span class="s">&quot;zerb&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">,</span> <span class="nc">Version</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">))</span>
+<span class="c1">//                 ^^ nooooo!</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p><img alt="noooooo" src="img/no.jpg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>The problem is that the types as-is aren't really accurate.<br />
+<code>String</code>s and <code>Int</code>s are being used too broadly.
+We really want "<code>Int</code>s greater than zero", 
+"<code>String</code>s that match a pattern", etc.</p>
+<p>You can do the checks in the constructor:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Version</span><span class="o">(</span><span class="n">major</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">minor</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">require</span><span class="o">(</span>
+    <span class="n">major</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">,</span> 
+    <span class="s">&quot;major must be &gt;= 0: %s&quot;</span><span class="o">.</span><span class="n">format</span><span class="o">(</span><span class="n">major</span><span class="o">))</span>
+  <span class="n">require</span><span class="o">(</span>
+    <span class="n">minor</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">,</span> 
+    <span class="s">&quot;minor must be &gt;= 0: %s&quot;</span><span class="o">.</span><span class="n">format</span><span class="o">(</span><span class="n">minor</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>But this has downsides:</p>
+<ul>
+<li>Validation failures happen as late as possible.</li>
+<li>You only get one failure, but more than one violation may be happening.</li>
+<li>You have to catch exceptions, which is just <strong>tedious</strong>.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">major</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">val</span> <span class="n">minor</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">val</span> <span class="n">version</span><span class="k">:</span> <span class="kt">???</span> <span class="o">=</span>
+  <span class="nc">Version</span><span class="o">.</span><span class="n">validate</span><span class="o">(</span><span class="n">major</span><span class="o">,</span> <span class="n">minor</span><span class="o">)</span>
+
+<span class="n">version</span> <span class="o">|</span> <span class="nc">Version</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="c1">// provide default</span>
+
+<span class="c1">// handle failure and success</span>
+<span class="n">version</span><span class="o">.</span><span class="n">fold</span><span class="o">(</span>
+  <span class="n">fail</span><span class="k">:</span> <span class="kt">???</span>        <span class="o">=&gt;</span> <span class="o">...,</span>
+  <span class="n">success</span><span class="k">:</span> <span class="kt">Version</span> <span class="o">=&gt;</span> <span class="o">...)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>Using <code>scalaz</code>, a <code>Validation</code> can either be a <code>Success</code> or <code>Failure</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nc">Version</span><span class="o">.</span><span class="n">validate</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+<span class="c1">// Success(Version(1, 2))</span>
+
+<span class="nc">Version</span><span class="o">.</span><span class="n">validate</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+<span class="c1">// Failure(NonEmptyList(&quot;digit must be &gt;= 0&quot;))</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>Model the <code>&gt;= 0</code> constraint:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Version</span><span class="o">(</span>
+  <span class="n">major</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="c1">// &gt;= 0</span>
+  <span class="n">minor</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="c1">// &gt;= 0</span>
+
+<span class="k">object</span> <span class="nc">Version</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">validDigit</span><span class="o">(</span><span class="n">digit</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span>
+    <span class="kt">Validation</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">(</span><span class="n">digit</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> 
+      <span class="n">digit</span><span class="o">.</span><span class="n">success</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">|</span> 
+      <span class="s">&quot;digit must be &gt;= 0&quot;</span><span class="o">.</span><span class="n">fail</span>
+
+  <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>Combine constraints:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">object</span> <span class="nc">Version</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">validDigit</span><span class="o">(</span><span class="n">digit</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> 
+    <span class="kt">Validation</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
+
+  <span class="k">def</span> <span class="n">validate</span><span class="o">(</span><span class="n">major</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">minor</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> 
+    <span class="o">(</span><span class="n">validDigit</span><span class="o">(</span><span class="n">major</span><span class="o">).</span><span class="n">liftFailNel</span> <span class="o">|@|</span> <span class="c1">// huh?</span>
+     <span class="n">validDigit</span><span class="o">(</span><span class="n">minor</span><span class="o">).</span><span class="n">liftFailNel</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// huh?</span>
+      <span class="nc">Version</span><span class="o">(</span><span class="k">_</span><span class="o">,</span> <span class="k">_</span><span class="o">)</span>                    <span class="c1">// huh?</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>Let's break down <code>validDigit(major).liftFailNel</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">validDigit</span><span class="o">(</span><span class="n">major</span><span class="o">)</span>
+<span class="c1">// Validation[String, Int]</span>
+
+<span class="n">validDigit</span><span class="o">(</span><span class="n">major</span><span class="o">).</span><span class="n">liftFailNel</span>
+<span class="c1">//   lift = do stuff inside</span>
+<span class="c1">//   fail = only work on the failure side</span>
+<span class="c1">//   nel  = NonEmptyList</span>
+<span class="c1">// Validation[NonEmptyList[String], Int]</span>
+
+<span class="k">type</span> <span class="kt">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">A</span><span class="o">]</span> <span class="k">=</span>
+  <span class="nc">Validation</span><span class="o">[</span><span class="kt">NonEmptyList</span><span class="o">[</span><span class="kt">X</span><span class="o">]</span>, <span class="kt">A</span><span class="o">]</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">maj</span> <span class="k">=</span> <span class="n">validDigit</span><span class="o">(</span><span class="n">major</span><span class="o">).</span><span class="n">liftFailNel</span>
+<span class="k">val</span> <span class="n">min</span> <span class="k">=</span> <span class="n">validDigit</span><span class="o">(</span><span class="n">minor</span><span class="o">).</span><span class="n">liftFailNel</span>
+<span class="c1">// Both ValidationNEL[String, Int]</span>
+<span class="c1">//                            ^^^</span>
+
+<span class="k">val</span> <span class="n">mkVersion</span> <span class="k">=</span> <span class="nc">Version</span><span class="o">(</span><span class="k">_</span><span class="o">,</span> <span class="k">_</span><span class="o">)</span>
+<span class="c1">// (Int, Int) =&gt; Version</span>
+
+<span class="k">val</span> <span class="n">version</span> <span class="k">=</span> <span class="o">(</span><span class="n">maj</span> <span class="o">|@|</span> <span class="n">min</span><span class="o">)</span> <span class="o">{</span> <span class="n">mkVersion</span> <span class="o">}</span>
+<span class="c1">// ValidationNEL[String, Version]</span>
+<span class="c1">//                       ^^^^^^^</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>The general form of combining <code>ValidationNEL</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">(</span><span class="nc">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">A</span><span class="o">]</span> <span class="o">|@|</span>
+ <span class="nc">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">B</span><span class="o">])</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">C</span>
+<span class="o">}</span> <span class="c1">// ValidationNEL[X, C]</span>
+
+<span class="o">(</span><span class="nc">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">A</span><span class="o">]</span> <span class="o">|@|</span>
+ <span class="nc">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">B</span><span class="o">]</span> <span class="o">|@|</span>
+ <span class="nc">ValidationNEL</span><span class="o">[</span><span class="kt">X</span>, <span class="kt">C</span><span class="o">])</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">,</span> <span class="n">C</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">D</span>
+<span class="o">}</span> <span class="c1">// ValidationNEL[X, D]</span>
+
+<span class="c1">// etc.</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>The "rules":</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="nc">Success</span> <span class="o">|@|</span> <span class="nc">Success</span> <span class="c1">// Success</span>
+<span class="nc">Success</span> <span class="o">|@|</span> <span class="nc">Failure</span> <span class="c1">// Failure</span>
+<span class="nc">Failure</span> <span class="o">|@|</span> <span class="nc">Success</span> <span class="c1">// Failure</span>
+<span class="nc">Failure</span> <span class="o">|@|</span> <span class="nc">Failure</span> <span class="c1">// Failure </span>
+<span class="c1">// and accumulate fail values!</span>
+
+<span class="c1">// Accumulate?</span>
+<span class="nc">NonEmptyList</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span> <span class="o">|+|</span> <span class="nc">NonEmptyList</span><span class="o">(</span><span class="s">&quot;bar&quot;</span><span class="o">)</span>
+<span class="c1">// NonEmptyList(&quot;foo&quot;, &quot;bar&quot;)</span>
+
+<span class="c1">// |+|? &quot;appends&quot; things according to rules</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Domain Validation</h1></header>
+            
+            
+            <section><p>An improvement? </p>
+<ul>
+<li>Pro: <code>Validation</code>/<code>Success</code>/<code>Failure</code> is nicer than <code>try</code>/<code>catch</code> or <code>Either</code>/<code>Left</code>/<code>Right</code>.</li>
+<li>Pro: Each rule is just a function producing a <code>Validation</code>.</li>
+<li>Pro: Rules can be composed together into new validations, of differing types.</li>
+<li>Pro: Composed rules accumulate all the errors vs. failing fast.</li>
+<li>Con: <code>liftFailNel</code>, <code>|@|</code>, etc., is incomprehensible if you're not familiar.</li>
+</ul>
+<p>Overall:</p>
+<p><img alt="yes" src="img/yes.jpg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>Let's say you have some nested structure like a tree:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// the data</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Foo</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">factor</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="c1">// a node of the tree</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">FooNode</span><span class="o">(</span>
+  <span class="n">value</span><span class="k">:</span> <span class="kt">Foo</span><span class="o">,</span> 
+  <span class="n">children</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">FooNode</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">())</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>Make a tree of <code>Foo</code>'s:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">tree</span> <span class="k">=</span> 
+  <span class="nc">FooNode</span><span class="o">(</span>
+    <span class="nc">Foo</span><span class="o">(</span><span class="s">&quot;root&quot;</span><span class="o">,</span> <span class="mi">11</span><span class="o">),</span>
+    <span class="nc">Seq</span><span class="o">(</span>
+      <span class="nc">FooNode</span><span class="o">(</span><span class="nc">Foo</span><span class="o">(</span><span class="s">&quot;child1&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">)),</span>
+      <span class="nc">FooNode</span><span class="o">(</span><span class="nc">Foo</span><span class="o">(</span><span class="s">&quot;child2&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">))))</span> <span class="c1">// &lt;-- * 4</span>
+</pre></div>
+</td></tr></table>
+<p>Task: Create a new tree where the <em>second child's</em> <code>factor</code> is multiplied by 4.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>Let's try all at once:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">secondTimes4</span><span class="k">:</span> <span class="kt">FooNode</span> <span class="o">=&gt;</span> <span class="nc">FooNode</span> <span class="k">=</span> 
+  <span class="n">node</span> <span class="k">=&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span><span class="n">children</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">second</span> <span class="k">=</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">updated</span><span class="o">(</span>
+      <span class="mi">1</span><span class="o">,</span> 
+      <span class="n">second</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span>
+        <span class="n">value</span> <span class="k">=</span> <span class="n">second</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span>
+          <span class="n">factor</span> <span class="k">=</span> <span class="n">second</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">factor</span> <span class="o">*</span> <span class="mi">4</span><span class="o">)))</span>
+  <span class="o">})</span>
+</pre></div>
+</td></tr></table>
+<p>Eww: temporary variables, <code>x.copy(field = f(x.field))</code> boilerplate, deep nesting for every level.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>Wouldn't it be better to have one thing to address something in a <code>Foo</code> or <code>FooNode</code>, and just combine them?</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">second</span> <span class="k">=</span> <span class="c1">// second node child</span>
+<span class="k">val</span> <span class="n">value</span>  <span class="k">=</span> <span class="c1">// value of a node</span>
+<span class="k">val</span> <span class="n">factor</span> <span class="k">=</span> <span class="c1">// factor field of Foo</span>
+
+<span class="k">val</span> <span class="n">secondFactor</span> <span class="k">=</span> <span class="n">second</span> <span class="o">???</span> <span class="n">value</span> <span class="o">???</span> <span class="n">factor</span>
+
+<span class="n">secondFactor</span><span class="o">(</span><span class="n">tree</span><span class="o">)</span> <span class="c1">// get 2</span>
+
+<span class="n">secondFactor</span><span class="o">.</span><span class="n">set</span><span class="o">(</span><span class="n">tree</span><span class="o">,</span> <span class="mi">8</span><span class="o">)</span>     <span class="c1">// set 8 there</span>
+<span class="n">secondFactor</span><span class="o">.</span><span class="n">mod</span><span class="o">(</span><span class="n">tree</span><span class="o">,</span> <span class="k">_</span> <span class="o">*</span> <span class="mi">4</span><span class="o">)</span> <span class="c1">// modify there</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">second</span><span class="k">:</span> <span class="kt">Lens</span><span class="o">[</span><span class="kt">FooNode</span>, <span class="kt">FooNode</span><span class="o">]</span> <span class="k">=</span> 
+  <span class="nc">Lens</span><span class="o">(</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">children</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>
+    <span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">c2</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span>
+      <span class="n">children</span> <span class="k">=</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">updated</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">c2</span><span class="o">)))</span>
+
+<span class="k">val</span> <span class="n">value</span><span class="k">:</span> <span class="kt">Lens</span><span class="o">[</span><span class="kt">FooNode</span>, <span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> 
+  <span class="nc">Lens</span><span class="o">(</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">value</span><span class="o">,</span>
+    <span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">value</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span><span class="n">value</span> <span class="k">=</span> <span class="n">value</span><span class="o">))</span>
+
+<span class="k">val</span> <span class="n">factor</span><span class="k">:</span> <span class="kt">Lens</span><span class="o">[</span><span class="kt">Foo</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> 
+  <span class="nc">Lens</span><span class="o">(</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">factor</span><span class="o">,</span> 
+    <span class="o">(</span><span class="n">foo</span><span class="o">,</span> <span class="n">fac</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span><span class="n">factor</span> <span class="k">=</span> <span class="n">fac</span><span class="o">))</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>The <code>Lens</code> type encapsulates "getters" and "setters" on another type.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="nc">Lens</span><span class="o">[</span><span class="kt">Thing</span>, <span class="kt">View</span><span class="o">](</span>
+  <span class="n">get</span><span class="k">:</span> <span class="kt">Thing</span> <span class="o">=&gt;</span> <span class="nc">View</span><span class="o">,</span>
+  <span class="n">set</span><span class="k">:</span> <span class="o">(</span><span class="kt">Thing</span><span class="o">,</span> <span class="kt">View</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Thing</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">thing</span><span class="k">:</span> <span class="kt">Thing</span>
+<span class="k">val</span> <span class="n">lens</span><span class="k">:</span>  <span class="kt">Lens</span><span class="o">[</span><span class="kt">Thing</span>, <span class="kt">View</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
+
+<span class="k">val</span> <span class="n">view</span><span class="k">:</span> <span class="kt">View</span> <span class="o">=</span> <span class="n">lens</span><span class="o">(</span><span class="n">thing</span><span class="o">)</span> <span class="c1">// apply = get</span>
+
+<span class="c1">// &quot;set&quot; a view</span>
+<span class="k">val</span> <span class="n">thing2</span><span class="k">:</span> <span class="kt">Thing</span> <span class="o">=</span> <span class="n">lens</span><span class="o">.</span><span class="n">set</span><span class="o">(</span><span class="n">thing</span><span class="o">,</span> <span class="n">view</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p>Lenses <em>compose</em>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">secondFactor</span> <span class="k">=</span> 
+  <span class="n">second</span> <span class="n">andThen</span> <span class="n">value</span> <span class="n">andThen</span> <span class="n">factor</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* FooNode(</span>
+<span class="cm">     Foo(&quot;root&quot;, 11),</span>
+<span class="cm">     Seq(</span>
+<span class="cm">       FooNode(Foo(&quot;child1&quot;, 1)),</span>
+<span class="cm">       FooNode(Foo(&quot;child2&quot;, 2))))</span>
+<span class="cm">                             ^</span>
+<span class="cm">                             ^</span>
+<span class="cm">                             ^  */</span>
+<span class="n">secondFactor</span><span class="o">(</span><span class="n">tree</span><span class="o">)</span>        <span class="c1">// 2</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* FooNode(</span>
+<span class="cm">     Foo(&quot;root&quot;, 11),</span>
+<span class="cm">     Seq(</span>
+<span class="cm">       FooNode(Foo(&quot;child1&quot;, 1)),</span>
+<span class="cm">       FooNode(Foo(&quot;child2&quot;, 2))))</span>
+<span class="cm">                             ^</span>
+<span class="cm">                             ^  */</span>
+<span class="n">secondFactor</span><span class="o">.</span><span class="n">mod</span><span class="o">(</span><span class="n">tree</span><span class="o">,</span>   <span class="k">_</span> <span class="o">*</span> <span class="mi">4</span><span class="o">)</span>
+<span class="cm">/* FooNode(                  ^</span>
+<span class="cm">     Foo(&quot;root&quot;, 11),        ^</span>
+<span class="cm">     Seq(                    ^</span>
+<span class="cm">       FooNode(Foo(&quot;child1&quot;, ^)),</span>
+<span class="cm">       FooNode(Foo(&quot;child2&quot;, 8))))</span>
+<span class="cm"> */</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Operations on "deep" data structures</h1></header>
+            
+            
+            <section><p><code>scalaz</code> for "deep" access:</p>
+<ul>
+<li>Pros: composable so you can "go deeper" <strong>for free</strong>.</li>
+<li>Cons: Need to be manually created. (But there is an experimental compiler plugin to autogenerate them for all case classes!)</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Thanks!</h1></header>
+            
+            
+            <section><p><center>
+<big><b>scalaz "For the Rest of Us"</b></big> </br>
+  </br>
+  Adam Rosien <br/>
+  <code>arosien@box.com &amp;&amp; adam@rosien.net</code> <br/>
+  <br/>
+  <code>@arosien #scalasv #scalaz</code>
+</center></p>
+<p>Thank the <code>scalaz</code> authors: runarorama, retronym, tmorris and lots others.</p>
+<p>Credits, sources and references:</p>
+<ul>
+<li>This presentation: <a href="https://github.com/arosien/scalaz-base-talk-201208">arosien/scalaz-base-talk-201208</a></li>
+<li>Yuvi Masory, <a href="http://yuvimasory.com/talks">Scalaz, Monads, Functors and You</a></li>
+<li><a href="http://code.google.com/p/scalaz/">scalaz homepage</a>, <a href="http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/index.html">scalaz 6.0.4 source cross-reference</a></li>
+<li><a href="https://github.com/jrwest/learn_you_a_scalaz">jrwest/learn_you_a_scalaz</a></li>
+<li><a href="https://github.com/debasishg/tryscalaz">debasishg/tryscalaz</a></li>
+<li>Runar Oli, <a href="http://lanyrd.com/2012/nescala/sqygc">Dead-Simple Dependency Injection</a></li>
+<li>Tony Morris, <a href="http://phillyemergingtech.com/2012/system/presentations/di-without-the-gymnastics.pdf">Dependency Injection Without the Gymnastics</a></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/45
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">-</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">-</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">-</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Getting Started</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Memoization</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Memoization</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Memoization</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Memoization</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Memoization</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Memoization</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Memoization</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Style</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Style</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Style</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Style</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Style</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Style</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Domain Validation</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Domain Validation</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Domain Validation</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Domain Validation</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Domain Validation</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Domain Validation</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">Domain Validation</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Domain Validation</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">Domain Validation</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">Domain Validation</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">Domain Validation</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">Domain Validation</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">Domain Validation</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Domain Validation</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">Domain Validation</a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">Domain Validation</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">Operations on "deep" data structures</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">Operations on "deep" data structures</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">Operations on "deep" data structures</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">Operations on "deep" data structures</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">Operations on "deep" data structures</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">Operations on "deep" data structures</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">Operations on "deep" data structures</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">Operations on "deep" data structures</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42">Operations on "deep" data structures</a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43">Operations on "deep" data structures</a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">Operations on "deep" data structures</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-45">
+        <th><a href="#slide45">Thanks!</a></th>
+        <td><a href="#slide45">45</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

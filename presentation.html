@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body style="!important;">
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><div style="border-radius: 10px; background: #EEEEEE; padding: 20px; text-align: center; font-size: 1.5em">
+  <big><b>Introduction to Scala </b></big> </br>
+  </br>
+  Chris McKinlay <br/>
+  <code>chris@datascience.com</code> <br/>
+  <br/>
+
+</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>John Backus</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/john_backus.jpg" /></p>
+<p>"Conventional programming languages are growing
+ever more enormous, but not stronger. Inherent defects
+at the most basic level cause them to be both fat and
+weak: their primitive word-at-a-time style of programming
+inherited from their common ancestor--the von
+Neumann computer, their close coupling of semantics to
+state transitions, their inability to effectively use powerful
+combining forms for building new programs from existing ones,
+and their lack of useful mathematical properties for reasoning
+about programs..."</p>
+<ul>
+<li><a href="http://dl.acm.org/citation.cfm?id=359579">Can Programming Be Liberated from the von Neumann Style?</a>, 1978 Turing Award Lecture</li>
+</ul>
+<p class="notes">Decouple semantics from state transitions. Use powerful primitives.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>The von Neumann Bottleneck</h1></header>
+            
+            
+            <section><p>We need other techniques for defining high-level abstractions such
+as collections, polynomials, geometric shapes, strings, documents.
+Ideally: Develop theories of collections, shapes, strings, …</p>
+<ul>
+<li><em>Reduce</em> syntactical noise</li>
+<li>Provide useful types that solve <em>many classes</em> of problems</li>
+<li><em>Add</em> type-safety with minimal "extra work"</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Language Elements</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Lexical Scoping</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">val</span> <span class="n">x</span> <span class="k">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="n">f</span><span class="o">(</span><span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">val</span> <span class="n">result</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">x</span> <span class="k">=</span> <span class="n">f</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+  <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="o">}</span> <span class="o">+</span> <span class="n">x</span>
+</pre></div>
+
+<p class="notes">QUESTION: what is the value of x?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Never use <code>return</code> (<a href="https://tpolecat.github.io/2014/05/09/return.html">why?</a>)</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">max</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="o">)</span> <span class="n">x</span>
+  <span class="k">else</span> <span class="n">y</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes"> the return value is by default the last line. Scala has a <code>return</code> keyword, but you should never use it.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Type Declaration and Inference</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">plusOne</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">plusOne</span><span class="k">:</span> <span class="o">(</span><span class="kt">x:</span> <span class="kt">Int</span><span class="o">)</span><span class="kt">Int</span>
+</pre></div>
+
+<p class="notes">Scala infers the return type. This can make for very concise code. Also Python-like</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Recursion</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="mi">1</span>
+  <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">with recursive functions we have to define the return type otherwise the type inference algorithm would get stuck in an infinite loop.  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Function Literals</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">).</span><span class="n">map</span><span class="o">((</span><span class="n">arg</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">factorial</span><span class="o">(</span><span class="n">arg</span><span class="o">))</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">immutable.IndexedSeq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Vector</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes"> Scala's type system is very rich. We'll talk a lot more about Scala's collection library in the next weeks. It's data structures are much more powerful that Python's. IndexedSeq is a Trait (like an interface in Java)</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Function Literals</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">arg</span> <span class="k">=&gt;</span> <span class="n">factorial</span><span class="o">(</span><span class="n">arg</span><span class="o">))</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">immutable.IndexedSeq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Vector</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">factorial</span> <span class="k">_</span> <span class="o">)</span>
+<span class="n">res2</span><span class="k">:</span> <span class="kt">immutable.IndexedSeq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Vector</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">factorial</span><span class="o">)</span>
+<span class="n">res3</span><span class="k">:</span> <span class="kt">immutable.IndexedSeq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Vector</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">)</span> <span class="n">map</span> <span class="n">factorial</span>
+<span class="n">res4</span><span class="k">:</span> <span class="kt">immutable.IndexedSeq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Vector</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes">Just like lambdas in Python. Scala's type system infers the Int arg and return types. If the literal consists of a single statement (the return) and a single argument then you can leave them out. These are called partially applied functions and we will return to them next class. Scala's type system infers the Int arg and return types. Method dots are optional.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>Procedures vs Processes</h1></header>
+            
+            
+            <section><pre><code>factorial(6)
+6 * factorial(5)
+6 * 5 * factorial(4)
+6 * 5 * 4 * factorial(3)
+6 * 5 * 4 * 3 * factorial(2)
+6 * 5 * 4 * 3 * 2 * factorial(1)
+6 * 5 * 4 * 3 * 2 * 1 * factorial(0)
+6 * 5 * 4 * 3 * 2 * 1 * 1
+720
+</code></pre>
+<p class="notes">Let's look at the computational process that results from calling factorial. Odersky discusses the same thing in the context of rewriting rules.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="n">factorial</span><span class="o">(</span><span class="mi">100000</span><span class="o">)</span>
+<span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="nc">StackOverflowError</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Tail Recursion</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">factorial2</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">factIter</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">total</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">total</span>
+    <span class="k">else</span> <span class="n">factIter</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">n</span><span class="o">*</span><span class="n">total</span><span class="o">)</span>
+  <span class="o">}</span>
+  <span class="n">factIter</span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="mi">1</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="mi">5</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">factorial2</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Iterative Processes</h1></header>
+            
+            
+            <section><pre><code>factorial2(6)
+factIter(6,1)
+factIter(5,6)
+factIter(4,30)
+factIter(3,120)
+factIter(2,360)
+factIter(1,720)
+factIter(0,720)
+720
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">fibonacci</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="mi">1</span>
+  <span class="k">else</span> <span class="n">fibonacci</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">QUESTION: what is the aysmptotic computational complexity of fibonacci(n)?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><pre><code>fibonacci(4)
+fibonacci(3)
+fibonacci(2)
+fibonacci(1)
+1
+fibonacci(0)
+1
+fibonacci(1)
+1
+fibonacci(2)
+fibonacci(1)
+1   
+fibonacci(0)
+1
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/fib-process.png" /></p>
+<p class="notes">Notice that the entire computation of (fib 3) -- almost half the work -- is duplicated. Process is O(theta^n)</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="mi">10</span><span class="o">)</span> <span class="n">map</span> <span class="n">fibonacci</span>
+<span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="mi">30</span><span class="o">)</span> <span class="n">map</span> <span class="n">fibonacci</span>
+<span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="mi">50</span><span class="o">)</span> <span class="n">map</span> <span class="n">fibonacci</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">fibonacci2</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">fibIter</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">a</span>
+    <span class="k">else</span> <span class="n">fibIter</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">)</span>
+  <span class="o">}</span>
+  <span class="n">fibIter</span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="mi">50</span><span class="o">)</span> <span class="n">map</span> <span class="n">fibonacci2</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/fib-mat.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Avoiding the von Neumann Bottleneck</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>Avoid conceptualizing data structures word-by-word.</p>
+<ul>
+<li>imperative state  </li>
+<li>loop-based logic</li>
+<li>referential-opacity</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Step 1: use var sparingly</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">printArgs1</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">var</span> <span class="n">i</span> <span class="k">=</span> <span class="mi">0</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">args</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="k">def</span> <span class="n">printArgs2</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="n">arg</span> <span class="k">&lt;-</span> <span class="n">args</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">arg</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">for (arg &lt;- args) is Scala's equivalent of a list comprehension</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Step 2: use loops sparingly</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">printArgs2</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="n">arg</span> <span class="k">&lt;-</span> <span class="n">args</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">arg</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">def</span> <span class="n">printArgs3</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">args</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">even simpler to pass println to map</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Step 3: use side effects sparingly</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">printArgs3</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">args</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">def</span> <span class="n">formatArgs</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">mkString</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">formatArgs</span><span class="o">(</span><span class="nc">Array</span><span class="o">(</span><span class="s">&quot;nine&quot;</span><span class="o">,</span> <span class="s">&quot;ten&quot;</span><span class="o">)))</span>
+</pre></div>
+
+<p class="notes">We've isolated the non-referentially transparent code to one line. You can tell b/c the return type is not Unit. We can now refactor the code without fear of breaking things.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Imperative QuickSort</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">swap</span><span class="o">(</span><span class="n">i</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">j</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span>  <span class="o">{</span>
+  <span class="k">val</span> <span class="n">t</span> <span class="k">=</span> <span class="n">xs</span><span class="o">(</span><span class="n">i</span><span class="o">);</span> <span class="n">xs</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="k">=</span> <span class="n">xs</span><span class="o">(</span><span class="n">j</span><span class="o">);</span> <span class="n">xs</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="k">=</span> <span class="n">t</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">QUESTION: What will happen if I run this in the interpreter?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">quickSort</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">sortHelper</span><span class="o">(</span><span class="n">l</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">r</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span>  <span class="o">{</span>
+    <span class="k">val</span> <span class="n">pivot</span> <span class="k">=</span> <span class="n">xs</span><span class="o">((</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span>
+    <span class="k">var</span> <span class="n">i</span> <span class="k">=</span> <span class="n">l</span><span class="o">;</span> <span class="k">var</span> <span class="n">j</span> <span class="k">=</span> <span class="n">r</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">xs</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="o">)</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">xs</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="o">)</span> <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="o">)</span> <span class="n">swap</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>  
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">)</span> <span class="n">sort1</span><span class="o">(</span><span class="n">l</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">)</span> <span class="n">sort1</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">r</span><span class="o">)</span>
+  <span class="o">}</span>
+  <span class="n">sortHelper</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Functional QuickSort</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="n">xs</span>
+  <span class="k">else</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">pivot</span> <span class="k">=</span> <span class="n">xs</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span>
+    <span class="nc">Array</span><span class="o">.</span><span class="n">concat</span><span class="o">(</span>
+      <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">&gt;)),</span>
+      <span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">==),</span>
+      <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">&lt;)))</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">The functional program captures the essence of the quicksort algorithm in a concise way. But where the imperative implementation operates in place by modifying the argument array, the functional implementation returns a new sorted array and leaves the ar- gument array unchanged. The functional implementation makes it look like Scala is a language that’s specialized for functional operations on arrays. In fact, it is not; all of the operations used in the example are simple library methods of a sequence class Seq[T] which is part of the standard Scala library, and which itself is implemented in Scala. Because arrays are instances of Seq all sequence methods are available for them.The functional implementation thus requires more tran- sient memory than the imperative one. QUESTION: what is going on with xs filter (pivot &gt;) ?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>John Backus</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/john_backus.jpg" /></p>
+<p>"...An alternative functional style of programming is
+founded on the use of combining forms for creating
+programs. Functional programs deal with structured
+data, are often non-repetitive and non-recursive, are hierarchically
+constructed, and do not require the complex machinery of procedure
+declarations to become generally applicable. Combining
+forms can use high level programs to build still higher
+level ones in a style not possible in conventional languages."</p>
+<ul>
+<li><a href="http://dl.acm.org/citation.cfm?id=359579">Can Programming Be Liberated from the von Neumann Style?</a>, 1978 Turing Award Lecture</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Challenge Question</h1></header>
+            
+            
+            <section><p>Write a pair of functions to print out Pascal's Triangle: one function to generate the numbers and one to format the string.</p>
+<div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">showTriangle</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
+<span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">4</span> <span class="mi">6</span> <span class="mi">4</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">5</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">5</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">6</span> <span class="mi">15</span> <span class="mi">20</span> <span class="mi">15</span> <span class="mi">6</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">7</span> <span class="mi">21</span> <span class="mi">35</span> <span class="mi">35</span> <span class="mi">21</span> <span class="mi">7</span> <span class="mi">1</span>
+</pre></div>
+
+<p class="notes">No side effects!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A Bit of History</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/history.png" /></p>
+<p><a href="https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704">https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>OpenMP (1997)</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/OpenMP.jpg" /></p>
+<p class="notes">started w/ Backus' Fortran 1.0 in 1997. parallel processing only done on expensive supercomputers. complex and not robust to node failures.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>MapReduce (2004)</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/mapreduce.png" /></p>
+<p class="notes">combined FP primitives with world-class cluster computing know-how. the simple MR framework (read Backus) meant that all of a sudden it became relatively simple and reliable to compute with large arrays of cheap nodes, any of which might fail. these guys are legends. they are also behind tensorFlow.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>Hadoop (2006)</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/hadoop-ecosystem.png" /></p>
+<p class="notes">open source MapReduce. became a top level apache project in 2006. batched processing. static pageRank anecdote. by 2006 google had already moved on to streaming.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>Kafka and Spark (2012)</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/cem3394/Documents/classes/_code/scala/accelerator/scala-week1/img/kafka-spark.png" /></p>
+<p class="notes">Both Scala projects. Came out of LinkedIn and Berekley's AmpLabs respectively. Framework and language have converged. Scala Collections API, Spark API, Scalding API, Kafka API are almost identical.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Back to Functional QuickSort</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="n">xs</span>
+  <span class="k">else</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">pivot</span> <span class="k">=</span> <span class="n">xs</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span>
+    <span class="nc">Array</span><span class="o">.</span><span class="n">concat</span><span class="o">(</span>
+      <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">&gt;)),</span>
+      <span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">==),</span>
+      <span class="n">quickSort2</span><span class="o">(</span><span class="n">xs</span> <span class="n">filter</span> <span class="o">(</span><span class="n">pivot</span> <span class="o">&lt;)))</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="notes">The functional program captures the essence of the quicksort algorithm in a concise way. But where the imperative implementation operates in place by modifying the argument array, the functional implementation returns a new sorted array and leaves the ar- gument array unchanged. The functional implementation makes it look like Scala is a language that’s specialized for functional operations on arrays. In fact, it is not; all of the operations used in the example are simple library methods of a sequence class Seq[T] which is part of the standard Scala library, and which itself is implemented in Scala. Because arrays are instances of Seq all sequence methods are available for them.The functional implementation thus requires more tran- sient memory than the imperative one. QUESTION: what is going on with xs filter (pivot &gt;) ?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            
+            <section><p>The <code>filter</code> method of an object of type <code>Array[T]</code> thus has the signature:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="n">filter</span><span class="o">(</span><span class="n">p</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="nc">Boolean</span><span class="o">)</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+</pre></div>
+
+<p class="notes">In particular, there is the method filter which takes as argument a predicate func- tion. This predicate function must map array elements to boolean values. The result of filter is an array consisting of all the elements of the original array for which the given predicate function is true. Here,T =&gt; Boolean is the type of functions that take an element of type t and return a Boolean. Functions like filter that take another function as argument or return one as result are called higher-order functions.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">foo</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">foo</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Boolean</span> <span class="k">=</span> <span class="o">&lt;</span><span class="n">function1</span><span class="o">&gt;</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">numbers</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">12</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes">very idiomatic in Scala to use _ for throwaway parameters. Easier on the working memory.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">val</span> <span class="n">foo</span> <span class="k">=</span> <span class="k">_</span> <span class="o">+</span> <span class="k">_</span>
+</pre></div>
+
+<p class="notes">QUESTION: is this an error? why? the compiler needs more type information to infer missing parameters.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            
+            <section><pre><code>scala&gt; val foo = _ + _
+error: missing parameter types
+val foo = (_: Int) + (_: Int)
+foo: (Int, Int) =&gt; Int = &lt;function2&gt;
+</code></pre>
+<p class="notes">QUESTION: what is <function2>?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>What is <code>function2</code>?</h1></header>
+            
+            
+            <section><p><a href="http://www.scala-lang.org/api/rc2/scala/Function2.html">http://www.scala-lang.org/api/rc2/scala/Function2.html</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Partially Applied Functions</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">sum</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">c</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+<span class="k">val</span> <span class="n">foobar</span> <span class="k">=</span> <span class="n">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes">I told you last time we'd get to these. QUESTION: what is the type of foobar?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Partially Applied Functions</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">foobar</span> <span class="k">=</span> <span class="n">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="n">foobar</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="o">&lt;</span><span class="n">function1</span><span class="o">&gt;</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">foobar</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+
+<p class="notes">you can also partially apply a function to none of its arguments</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">sum</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span><span class="o">,</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="mi">0</span>
+  <span class="k">else</span> <span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">+</span> <span class="n">sum</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>What is the return type here?</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">sum</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span><span class="o">,</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="mi">0</span>
+  <span class="k">else</span> <span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">+</span> <span class="n">sum</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="n">sum</span><span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="n">sum</span><span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">,</span> <span class="k">_:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="n">res0</span><span class="k">:</span> <span class="o">(</span><span class="kt">Int</span><span class="o">,</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="o">&lt;</span><span class="n">function2</span><span class="o">&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              46/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">sumDoubles</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span>
+  <span class="n">sum</span><span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+<span class="k">def</span> <span class="n">sumQuintuples</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span>
+  <span class="n">sum</span><span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="mi">5</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes">but this isn't DRY, I'm carrying a and b around everywhere</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              47/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code has_notes">
+          <div class="inner">
+            
+            <header><h1>Currying</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">s2</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Double</span><span class="o">)</span><span class="k">:</span> <span class="o">(</span><span class="kt">Int</span><span class="o">,</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Double</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">sumF</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">+</span> <span class="n">sumF</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+  <span class="n">sumF</span>
+<span class="o">}</span>  
+<span class="n">s2</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="o">)(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">10</span><span class="o">)</span>
+</pre></div>
+
+<p class="notes">the function sum is applied to the squaring function (x =&gt; x * x). The resulting function is then applied to the second argument list: (0, 10).</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              48/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">s3</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Double</span><span class="o">)(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">f</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">+</span> <span class="n">sum3</span><span class="o">(</span><span class="n">f</span><span class="o">)(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>What is the return value here?</h1></header>
+            
+            
+            <section><pre><code>def foo(x: Int): Double = 1/factorial(x).toDouble
+s3(foo)(0,10)
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              50/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="n">s3</span><span class="o">(</span><span class="n">foo</span><span class="o">)(</span><span class="mi">0</span><span class="o">,</span><span class="mi">10</span><span class="o">)</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mf">2.7182818</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              51/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Challenge Answer</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="n">pascal</span><span class="o">(</span><span class="n">r</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">r</span> <span class="o">==</span> <span class="n">c</span><span class="o">)</span> <span class="mi">1</span>
+  <span class="k">else</span> <span class="n">pascal</span><span class="o">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="o">)(</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">pascal</span><span class="o">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="o">)(</span><span class="n">c</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">def</span> <span class="n">showTriangle</span><span class="o">(</span><span class="n">rows</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">lines</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+    <span class="n">r</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">rows</span>
+  <span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="mi">0</span> <span class="n">to</span> <span class="n">r</span><span class="o">)</span> <span class="n">map</span> <span class="n">pascal</span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="n">mkString</span> <span class="s">&quot; &quot;</span>
+  <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">lines</span> <span class="n">mkString</span> <span class="s">&quot;\n&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="n">println</span><span class="o">(</span><span class="n">showTriangle</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              52/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">scala</span><span class="o">&gt;</span> <span class="n">pascal</span><span class="o">(</span><span class="mi">4</span><span class="o">)(</span><span class="k">_</span><span class="o">)</span>
+<span class="n">res8</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="o">&lt;</span><span class="n">function1</span><span class="o">&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Thanks!</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/54
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">-</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">John Backus</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">The von Neumann Bottleneck</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Language Elements</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Lexical Scoping</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Never use <code>return</code> (<a href="https://tpolecat.github.io/2014/05/09/return.html">why?</a>)</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Type Declaration and Inference</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Recursion</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Function Literals</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Function Literals</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Procedures vs Processes</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">-</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Tail Recursion</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Iterative Processes</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">-</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">-</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">-</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">-</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">-</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">-</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Avoiding the von Neumann Bottleneck</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">-</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Step 1: use var sparingly</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">Step 2: use loops sparingly</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Step 3: use side effects sparingly</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">Imperative QuickSort</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">-</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">Functional QuickSort</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">John Backus</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">Challenge Question</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">A Bit of History</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">OpenMP (1997)</a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">MapReduce (2004)</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">Hadoop (2006)</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">Kafka and Spark (2012)</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">Back to Functional QuickSort</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">-</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">-</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">-</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">-</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">What is <code>function2</code>?</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42">Partially Applied Functions</a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43">Partially Applied Functions</a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">-</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-45">
+        <th><a href="#slide45">What is the return type here?</a></th>
+        <td><a href="#slide45">45</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-46">
+        <th><a href="#slide46">-</a></th>
+        <td><a href="#slide46">46</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-47">
+        <th><a href="#slide47">-</a></th>
+        <td><a href="#slide47">47</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-48">
+        <th><a href="#slide48">Currying</a></th>
+        <td><a href="#slide48">48</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-49">
+        <th><a href="#slide49">-</a></th>
+        <td><a href="#slide49">49</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-50">
+        <th><a href="#slide50">What is the return value here?</a></th>
+        <td><a href="#slide50">50</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-51">
+        <th><a href="#slide51">-</a></th>
+        <td><a href="#slide51">51</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-52">
+        <th><a href="#slide52">Challenge Answer</a></th>
+        <td><a href="#slide52">52</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-53">
+        <th><a href="#slide53">-</a></th>
+        <td><a href="#slide53">53</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-54">
+        <th><a href="#slide54">Thanks!</a></th>
+        <td><a href="#slide54">54</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
