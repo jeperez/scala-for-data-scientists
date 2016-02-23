@@ -1086,10 +1086,6 @@ Case classes are designed to be used with pattern matching.
       def op(a1: String, a2: String) = a1 + a2
       val zero = ""
     }
-    val listMonoid[A] = new Monoid[List[A]] {
-      def op(a1: List[A], a2: List[A]) = a1 ++ a2
-      val zero = Nil
-    }
 
 ---
 
