@@ -1,2 +1,2 @@
 # scala-for-data-scientists
-A fast-paced introduction to the Scala programming language for data scientists. These slides loosely follow Martin Odersky's Coursera course, and touch on common patterns in data wrangling and modeling. 
+A fast-paced introduction to the Scala programming language for data scientists. These slides loosely follow Chiusano and Bjarnason's [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala), and touch on common patterns in data mining. 
