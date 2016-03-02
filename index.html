@@ -70,11 +70,10 @@
             
             
             <section><div style="border-radius: 10px; background: #EEEEEE; padding: 20px; text-align: center; font-size: 1.5em">
-  <big><b>Introduction to Scala </b></big> </br>
+  <big><b>Scala for Data Scientists</b></big> </br>
   </br>
 
-  <code>chris@datascience.com</code>
-  <code>jason@datascience.com</code>
+  <code>{chris,jason}@datascience.com</code>
   <br/>
   <br/>
 
@@ -96,7 +95,7 @@
             </aside>
             
             <aside class="page_number">
-              1/228
+              1/243
             </aside>
 
           </footer>
@@ -114,6 +113,7 @@
             <section><ul>
 <li>Chiusano and Bjarnason's <a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
 <li>Twitter's <a href="https://twitter.github.io/scala_school/">Scala School</a></li>
+<li>Li Haoyi's <a href="http://www.lihaoyi.com/post/StrategicScalaStylePrincipleofLeastPower.html">Strategic Scala Style Guide</a></li>
 <li>This course's <a href="https://github.com/cem3394/scala-for-data-scientists/tree/gh-pages">Github Project</a></li>
 </ul></section>
             
@@ -133,7 +133,7 @@
             </aside>
             
             <aside class="page_number">
-              2/228
+              2/243
             </aside>
 
           </footer>
@@ -164,7 +164,7 @@
             </aside>
             
             <aside class="page_number">
-              3/228
+              3/243
             </aside>
 
           </footer>
@@ -210,7 +210,7 @@ about programs..."</p>
             </aside>
             
             <aside class="page_number">
-              4/228
+              4/243
             </aside>
 
           </footer>
@@ -251,177 +251,7 @@ Ideally: Develop theories of collections, shapes, strings, …</p>
             </aside>
             
             <aside class="page_number">
-              5/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>A Bit of History</h1></header>
-            
-            
-            <section><p><img alt="" src="img/history.png" /></p>
-<p><a href="https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704">https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704</a></p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              6/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_notes">
-          <div class="inner">
-            
-            <header><h1>OpenMP (1997)</h1></header>
-            
-            
-            <section><p><img alt="" src="img/OpenMP.jpg" /></p>
-<p class="notes">started w/ Backus' Fortran 1.0 in 1997. parallel processing only done on expensive supercomputers. complex and not robust to node failures.</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              7/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_notes">
-          <div class="inner">
-            
-            <header><h1>MapReduce (2004)</h1></header>
-            
-            
-            <section><p><img alt="" src="img/mapreduce.png" /></p>
-<p class="notes">combined FP primitives with world-class cluster computing know-how. the simple MR framework (read Backus) meant that all of a sudden it became relatively simple and reliable to compute with large arrays of cheap nodes, any of which might fail. these guys are legends. they are also behind tensorFlow.</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              8/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_notes">
-          <div class="inner">
-            
-            <header><h1>Hadoop (2006)</h1></header>
-            
-            
-            <section><p><img alt="" src="img/hadoop-ecosystem.png" /></p>
-<p class="notes">open source MapReduce. became a top level apache project in 2006. batched processing. static pageRank anecdote. by 2006 google had already moved on to streaming.</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              9/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_notes">
-          <div class="inner">
-            
-            <header><h1>Kafka and Spark (2012)</h1></header>
-            
-            
-            <section><p><img alt="" src="img/kafka-spark.png" /></p>
-<p class="notes">Both Scala projects. Came out of LinkedIn and Berekley's AmpLabs respectively. Framework and language have converged. Scala Collections API, Spark API, Scalding API, Kafka API are almost identical.</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              10/228
+              5/243
             </aside>
 
           </footer>
@@ -461,7 +291,7 @@ res2: Double = 7.0
             </aside>
             
             <aside class="page_number">
-              11/228
+              6/243
             </aside>
 
           </footer>
@@ -509,7 +339,7 @@ res2: Double = 7.0
             </aside>
             
             <aside class="page_number">
-              12/228
+              7/243
             </aside>
 
           </footer>
@@ -541,7 +371,7 @@ res2: Double = 7.0
             </aside>
             
             <aside class="page_number">
-              13/228
+              8/243
             </aside>
 
           </footer>
@@ -582,7 +412,7 @@ res3: String = 数据科学
             </aside>
             
             <aside class="page_number">
-              14/228
+              9/243
             </aside>
 
           </footer>
@@ -620,7 +450,7 @@ error: type mismatch
             </aside>
             
             <aside class="page_number">
-              15/228
+              10/243
             </aside>
 
           </footer>
@@ -656,7 +486,7 @@ error: type mismatch
             </aside>
             
             <aside class="page_number">
-              16/228
+              11/243
             </aside>
 
           </footer>
@@ -694,7 +524,7 @@ plusTwo: (x: Int)Int
             </aside>
             
             <aside class="page_number">
-              17/228
+              12/243
             </aside>
 
           </footer>
@@ -733,7 +563,7 @@ plusTwo: (x: Int)Int
             </aside>
             
             <aside class="page_number">
-              18/228
+              13/243
             </aside>
 
           </footer>
@@ -773,7 +603,7 @@ foobar: ()String
             </aside>
             
             <aside class="page_number">
-              19/228
+              14/243
             </aside>
 
           </footer>
@@ -814,7 +644,7 @@ foobar: ()String
             </aside>
             
             <aside class="page_number">
-              20/228
+              15/243
             </aside>
 
           </footer>
@@ -853,7 +683,7 @@ foobar: ()String
             </aside>
             
             <aside class="page_number">
-              21/228
+              16/243
             </aside>
 
           </footer>
@@ -891,7 +721,7 @@ res0: immutable.IndexedSeq[Int] = Vector(1, 2, 6)
             </aside>
             
             <aside class="page_number">
-              22/228
+              17/243
             </aside>
 
           </footer>
@@ -931,7 +761,7 @@ res4: immutable.IndexedSeq[Int] = Vector(1, 2, 6)
             </aside>
             
             <aside class="page_number">
-              23/228
+              18/243
             </aside>
 
           </footer>
@@ -974,7 +804,7 @@ res4: immutable.IndexedSeq[Int] = Vector(1, 2, 6)
             </aside>
             
             <aside class="page_number">
-              24/228
+              19/243
             </aside>
 
           </footer>
@@ -1017,7 +847,7 @@ res4: immutable.IndexedSeq[Int] = Vector(1, 2, 6)
             </aside>
             
             <aside class="page_number">
-              25/228
+              20/243
             </aside>
 
           </footer>
@@ -1059,7 +889,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              26/228
+              21/243
             </aside>
 
           </footer>
@@ -1096,7 +926,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              27/228
+              22/243
             </aside>
 
           </footer>
@@ -1128,7 +958,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              28/228
+              23/243
             </aside>
 
           </footer>
@@ -1168,7 +998,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              29/228
+              24/243
             </aside>
 
           </footer>
@@ -1199,7 +1029,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              30/228
+              25/243
             </aside>
 
           </footer>
@@ -1233,7 +1063,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              31/228
+              26/243
             </aside>
 
           </footer>
@@ -1269,7 +1099,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              32/228
+              27/243
             </aside>
 
           </footer>
@@ -1303,7 +1133,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              33/228
+              28/243
             </aside>
 
           </footer>
@@ -1346,7 +1176,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              34/228
+              29/243
             </aside>
 
           </footer>
@@ -1377,7 +1207,7 @@ factIter(0,720)
             </aside>
             
             <aside class="page_number">
-              35/228
+              30/243
             </aside>
 
           </footer>
@@ -1421,7 +1251,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              36/228
+              31/243
             </aside>
 
           </footer>
@@ -1459,7 +1289,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              37/228
+              32/243
             </aside>
 
           </footer>
@@ -1505,7 +1335,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              38/228
+              33/243
             </aside>
 
           </footer>
@@ -1549,7 +1379,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              39/228
+              34/243
             </aside>
 
           </footer>
@@ -1587,7 +1417,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              40/228
+              35/243
             </aside>
 
           </footer>
@@ -1633,7 +1463,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              41/228
+              36/243
             </aside>
 
           </footer>
@@ -1676,7 +1506,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              42/228
+              37/243
             </aside>
 
           </footer>
@@ -1688,7 +1518,7 @@ level ones in a style not possible in conventional languages."</p>
         <div class="slide has_code has_notes">
           <div class="inner">
             
-            <header><h1>Higher-Order Functions</h1></header>
+            <header><h1>Functional Combinators</h1></header>
             
             
             <section><p>The <code>filter</code> method of an object of type <code>List[T]</code> thus has the signature:</p>
@@ -1713,7 +1543,7 @@ level ones in a style not possible in conventional languages."</p>
             </aside>
             
             <aside class="page_number">
-              43/228
+              38/243
             </aside>
 
           </footer>
@@ -1749,7 +1579,7 @@ res0: (Int =&gt; Boolean) =&gt; List[Int] = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              44/228
+              39/243
             </aside>
 
           </footer>
@@ -1787,7 +1617,7 @@ res1: List[Int] = List(2, 4, 6)
             </aside>
             
             <aside class="page_number">
-              45/228
+              40/243
             </aside>
 
           </footer>
@@ -1821,7 +1651,7 @@ res1: List[Int] = List(2, 4, 6)
             </aside>
             
             <aside class="page_number">
-              46/228
+              41/243
             </aside>
 
           </footer>
@@ -1857,7 +1687,7 @@ foo: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              47/228
+              42/243
             </aside>
 
           </footer>
@@ -1891,7 +1721,7 @@ foo: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              48/228
+              43/243
             </aside>
 
           </footer>
@@ -1928,7 +1758,7 @@ foo: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              49/228
+              44/243
             </aside>
 
           </footer>
@@ -1964,7 +1794,7 @@ res0: Int = 6
             </aside>
             
             <aside class="page_number">
-              50/228
+              45/243
             </aside>
 
           </footer>
@@ -2000,7 +1830,7 @@ scala&gt; println(sum _ )
             </aside>
             
             <aside class="page_number">
-              51/228
+              46/243
             </aside>
 
           </footer>
@@ -2035,7 +1865,7 @@ scala&gt; println(sum _ )
             </aside>
             
             <aside class="page_number">
-              52/228
+              47/243
             </aside>
 
           </footer>
@@ -2068,7 +1898,7 @@ res2: List[Int] = List(4, 5, 6)
             </aside>
             
             <aside class="page_number">
-              53/228
+              48/243
             </aside>
 
           </footer>
@@ -2093,7 +1923,7 @@ res2: List[Int] = List(4, 5, 6)
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -2130,7 +1960,7 @@ res2: List[Int] = List(4, 5, 6)
             </aside>
             
             <aside class="page_number">
-              54/228
+              49/243
             </aside>
 
           </footer>
@@ -2166,7 +1996,7 @@ res3: List[Int] = List(4, 5, 6, 7, 8)
             </aside>
             
             <aside class="page_number">
-              55/228
+              50/243
             </aside>
 
           </footer>
@@ -2206,7 +2036,7 @@ res3: List[Int] = List(4, 5, 6, 7, 8)
             </aside>
             
             <aside class="page_number">
-              56/228
+              51/243
             </aside>
 
           </footer>
@@ -2240,7 +2070,136 @@ res4: List[Int] = List(4, 5, 6, 7, 8)
             </aside>
             
             <aside class="page_number">
-              57/228
+              52/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Type inference</h1></header>
+            
+            
+            <section><p>Scala's type system is complicated by the presence of path-dependent types and subtyping.</p>
+<p>As a result Scala has only very limited, local type inference.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>Whereas other programming languages like Haskell or ML may have some species of Hindley-Milner type inference, Scala has what's called "flow-based" inference. That is, type information "flows" from arguments to results. Given the types of the arguments, Scala is able to infer the result type of a function, unless that function is recursive.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>We gain type inference benefits from grouping arguments into two argument lists, as in <code>dropWhile2(numbers) (x =&gt; x &lt; 4)</code>.</p>
+<p>Type information flows from the first argument list to the second when inferring type arguments to a function call.</p>
+<p>Note that no inference benefit can be gained from adding more than two argument lists to a function, as Scala's typer does not consult any argument lists beyond the first.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              55/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>See the <a href="http://www.scala-lang.org/docu/files/ScalaReference.pdf">Scala Language Specification</a> for more information on Scala's type inference. Specifically sections 4.6.4 (Method Return Type Inference), 6.26.4 (Local Type Inference), and 8.3 (Type Parameter Inference In Patterns).</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              56/243
             </aside>
 
           </footer>
@@ -2278,7 +2237,7 @@ res4: List[Int] = List(4, 5, 6, 7, 8)
             </aside>
             
             <aside class="page_number">
-              58/228
+              57/243
             </aside>
 
           </footer>
@@ -2316,7 +2275,7 @@ res4: List[Int] = List(4, 5, 6, 7, 8)
             </aside>
             
             <aside class="page_number">
-              59/228
+              58/243
             </aside>
 
           </footer>
@@ -2349,7 +2308,7 @@ res5: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              60/228
+              59/243
             </aside>
 
           </footer>
@@ -2386,7 +2345,7 @@ res5: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              61/228
+              60/243
             </aside>
 
           </footer>
@@ -2425,7 +2384,7 @@ res5: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              62/228
+              61/243
             </aside>
 
           </footer>
@@ -2459,7 +2418,7 @@ res5: (Int, Int) =&gt; Int = &lt;function2&gt;
             </aside>
             
             <aside class="page_number">
-              63/228
+              62/243
             </aside>
 
           </footer>
@@ -2493,7 +2452,7 @@ sum3(foo)(0,10)
             </aside>
             
             <aside class="page_number">
-              64/228
+              63/243
             </aside>
 
           </footer>
@@ -2526,7 +2485,7 @@ res6: Double = 2.7182818
             </aside>
             
             <aside class="page_number">
-              65/228
+              64/243
             </aside>
 
           </footer>
@@ -2564,7 +2523,7 @@ res6: Double = 2.7182818
             </aside>
             
             <aside class="page_number">
-              66/228
+              65/243
             </aside>
 
           </footer>
@@ -2602,7 +2561,7 @@ res6: Double = 2.7182818
             </aside>
             
             <aside class="page_number">
-              67/228
+              66/243
             </aside>
 
           </footer>
@@ -2635,7 +2594,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              68/228
+              67/243
             </aside>
 
           </footer>
@@ -2675,7 +2634,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              69/228
+              68/243
             </aside>
 
           </footer>
@@ -2718,7 +2677,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              70/228
+              69/243
             </aside>
 
           </footer>
@@ -2758,7 +2717,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              71/228
+              70/243
             </aside>
 
           </footer>
@@ -2792,7 +2751,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              72/228
+              71/243
             </aside>
 
           </footer>
@@ -2827,7 +2786,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              73/228
+              72/243
             </aside>
 
           </footer>
@@ -2865,7 +2824,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              74/228
+              73/243
             </aside>
 
           </footer>
@@ -2904,7 +2863,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              75/228
+              74/243
             </aside>
 
           </footer>
@@ -2945,7 +2904,7 @@ res7: Int =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              76/228
+              75/243
             </aside>
 
           </footer>
@@ -2981,7 +2940,7 @@ res8: Int = 4
             </aside>
             
             <aside class="page_number">
-              77/228
+              76/243
             </aside>
 
           </footer>
@@ -3014,7 +2973,7 @@ res8: Int = 4
             </aside>
             
             <aside class="page_number">
-              78/228
+              77/243
             </aside>
 
           </footer>
@@ -3028,6 +2987,15 @@ res8: Int = 4
             
             <header><h1>Lecture 3: Traits and Classes</h1></header>
             
+            
+            <section><blockquote>
+<p>"Object-oriented programming is an exceptionally bad idea which could only have originated in California."
+– Edsger Dijkstra
+$$
+$$
+"The phrase "object-oriented” means a lot of things. Half are obvious, and the other half are mistakes."
+– Paul Graham</p>
+</blockquote></section>
             
           </div>
           <div class="presenter_notes">
@@ -3045,7 +3013,7 @@ res8: Int = 4
             </aside>
             
             <aside class="page_number">
-              79/228
+              78/243
             </aside>
 
           </footer>
@@ -3079,7 +3047,7 @@ res8: Int = 4
             </aside>
             
             <aside class="page_number">
-              80/228
+              79/243
             </aside>
 
           </footer>
@@ -3118,7 +3086,7 @@ res8: Int = 4
             </aside>
             
             <aside class="page_number">
-              81/228
+              80/243
             </aside>
 
           </footer>
@@ -3152,7 +3120,7 @@ Hello, world
             </aside>
             
             <aside class="page_number">
-              82/228
+              81/243
             </aside>
 
           </footer>
@@ -3192,7 +3160,7 @@ Hello, world
             </aside>
             
             <aside class="page_number">
-              83/228
+              82/243
             </aside>
 
           </footer>
@@ -3231,7 +3199,7 @@ Hello, world
             </aside>
             
             <aside class="page_number">
-              84/228
+              83/243
             </aside>
 
           </footer>
@@ -3271,7 +3239,7 @@ class scala.runtime.BoxedUnit
             </aside>
             
             <aside class="page_number">
-              85/228
+              84/243
             </aside>
 
           </footer>
@@ -3309,7 +3277,7 @@ class scala.runtime.BoxedUnit
             </aside>
             
             <aside class="page_number">
-              86/228
+              85/243
             </aside>
 
           </footer>
@@ -3344,7 +3312,7 @@ res53: Int = 2
             </aside>
             
             <aside class="page_number">
-              87/228
+              86/243
             </aside>
 
           </footer>
@@ -3381,7 +3349,7 @@ res53: Int = 2
             </aside>
             
             <aside class="page_number">
-              88/228
+              87/243
             </aside>
 
           </footer>
@@ -3416,7 +3384,7 @@ error: method apply is not defined
             </aside>
             
             <aside class="page_number">
-              89/228
+              88/243
             </aside>
 
           </footer>
@@ -3451,7 +3419,7 @@ error: method apply is not defined
             </aside>
             
             <aside class="page_number">
-              90/228
+              89/243
             </aside>
 
           </footer>
@@ -3486,7 +3454,7 @@ res3: Int = 3
             </aside>
             
             <aside class="page_number">
-              91/228
+              90/243
             </aside>
 
           </footer>
@@ -3523,7 +3491,7 @@ res3: Int = 3
             </aside>
             
             <aside class="page_number">
-              92/228
+              91/243
             </aside>
 
           </footer>
@@ -3540,7 +3508,7 @@ res3: Int = 3
      |   def apply(m: Int, n: Int): Int = m + n
      |   }
 foo2: (Int, Int) =&gt; Int = &lt;function2&gt;
-scala&gt; foo.curried    
+scala&gt; (foo _ ).curried  
 res44: Int =&gt; (Int =&gt; Int) = &lt;function1&gt;
 scala&gt; foo.tupled
 res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
@@ -3562,7 +3530,7 @@ res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              93/228
+              92/243
             </aside>
 
           </footer>
@@ -3601,7 +3569,7 @@ res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              94/228
+              93/243
             </aside>
 
           </footer>
@@ -3626,7 +3594,7 @@ res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -3665,7 +3633,77 @@ res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              95/228
+              94/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Variance</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              95/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><p>Here is a case where a contravariant type parameter is useful.</p>
+<div class="highlight"><pre><span></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">OutputChannel</span><span class="o">[</span><span class="kt">-A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">write</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>With that annotation, we have that OutputChannel[AnyRef] conforms to
+OutputChannel[String]. That is, a channel on which one can write any object can
+substitute for a channel on which one can write only strings.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              96/243
             </aside>
 
           </footer>
@@ -3698,7 +3736,7 @@ res49: ((Int, Int)) =&gt; Int = &lt;function1&gt;
             </aside>
             
             <aside class="page_number">
-              96/228
+              97/243
             </aside>
 
           </footer>
@@ -3734,7 +3772,7 @@ hp20b: Calculator = Calculator(hp,20b)
             </aside>
             
             <aside class="page_number">
-              97/228
+              98/243
             </aside>
 
           </footer>
@@ -3771,7 +3809,7 @@ res6: Boolean = true
             </aside>
             
             <aside class="page_number">
-              98/228
+              99/243
             </aside>
 
           </footer>
@@ -3813,7 +3851,7 @@ res6: Boolean = true
             </aside>
             
             <aside class="page_number">
-              99/228
+              100/243
             </aside>
 
           </footer>
@@ -3850,7 +3888,7 @@ res6: Boolean = true
             </aside>
             
             <aside class="page_number">
-              100/228
+              101/243
             </aside>
 
           </footer>
@@ -3885,7 +3923,7 @@ class Cons
             </aside>
             
             <aside class="page_number">
-              101/228
+              102/243
             </aside>
 
           </footer>
@@ -3930,7 +3968,7 @@ class Cons
             </aside>
             
             <aside class="page_number">
-              102/228
+              103/243
             </aside>
 
           </footer>
@@ -3967,7 +4005,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              103/228
+              104/243
             </aside>
 
           </footer>
@@ -4005,7 +4043,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              104/228
+              105/243
             </aside>
 
           </footer>
@@ -4018,13 +4056,15 @@ res1: Int = 10
           <div class="inner">
             
             
-            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">intAddition</span><span class="k">:</span> <span class="kt">Monoid</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-  <span class="k">val</span> <span class="n">zero</span> <span class="k">=</span> <span class="mi">0</span>
-<span class="o">}</span>
-<span class="k">val</span> <span class="n">stringMonoid</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">a1</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">a2</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>
-  <span class="k">val</span> <span class="n">zero</span> <span class="k">=</span> <span class="s">&quot;&quot;</span>
+            <section><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">Monoid</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">intAddition</span><span class="k">:</span> <span class="kt">Monoid</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">val</span> <span class="n">zero</span> <span class="k">=</span> <span class="mi">0</span>
+  <span class="o">}</span>
+  <span class="k">val</span> <span class="n">stringMonoid</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">a1</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">a2</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>
+    <span class="k">val</span> <span class="n">zero</span> <span class="k">=</span> <span class="s">&quot;&quot;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </section>
@@ -4045,7 +4085,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              105/228
+              106/243
             </aside>
 
           </footer>
@@ -4060,7 +4100,8 @@ res1: Int = 10
             <header><h1>Challenge Question</h1></header>
             
             
-            <section><p>Write an endomorphism-based <code>endoMonoid</code> object that extends <code>Monoid</code> with the appropriate definition of <code>op</code> and <code>zero</code>.</p>
+            <section><p>Write an endomorphism-based <code>endoMonoid</code> object to place in the <code>Monoid</code> companion object.</p>
+<p>It should extend the <code>Monoid</code> base trait with the appropriate definition of <code>op</code> and <code>zero</code>.</p>
 <p>An endomorphism in mathematics is a function with the same domain and range. It is modeled in Scala by <code>Function1[A, A]</code>.</p></section>
             
           </div>
@@ -4079,7 +4120,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              106/228
+              107/243
             </aside>
 
           </footer>
@@ -4104,7 +4145,7 @@ res1: Int = 10
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -4141,7 +4182,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              107/228
+              108/243
             </aside>
 
           </footer>
@@ -4181,7 +4222,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              108/228
+              109/243
             </aside>
 
           </footer>
@@ -4215,7 +4256,7 @@ res1: Int = 10
             </aside>
             
             <aside class="page_number">
-              109/228
+              110/243
             </aside>
 
           </footer>
@@ -4251,7 +4292,7 @@ When you call an Iterator returned by an <code>Iterable</code> though, you pull 
             </aside>
             
             <aside class="page_number">
-              110/228
+              111/243
             </aside>
 
           </footer>
@@ -4287,7 +4328,7 @@ b: Iterable[Int] = List(1, 2, 3)
             </aside>
             
             <aside class="page_number">
-              111/228
+              112/243
             </aside>
 
           </footer>
@@ -4325,7 +4366,7 @@ error:  type mismatch;
             </aside>
             
             <aside class="page_number">
-              112/228
+              113/243
             </aside>
 
           </footer>
@@ -4362,7 +4403,7 @@ res3: Seq[Int] = List(1, 1, 2)
             </aside>
             
             <aside class="page_number">
-              113/228
+              114/243
             </aside>
 
           </footer>
@@ -4394,7 +4435,7 @@ res3: Seq[Int] = List(1, 1, 2)
             </aside>
             
             <aside class="page_number">
-              114/228
+              115/243
             </aside>
 
           </footer>
@@ -4428,7 +4469,7 @@ res14: LinearSeq[Int] = List(1, 2, 3)
             </aside>
             
             <aside class="page_number">
-              115/228
+              116/243
             </aside>
 
           </footer>
@@ -4462,7 +4503,7 @@ res14: LinearSeq[Int] = List(1, 2, 3)
             </aside>
             
             <aside class="page_number">
-              116/228
+              117/243
             </aside>
 
           </footer>
@@ -4498,7 +4539,7 @@ res1: Double = 2.0
             </aside>
             
             <aside class="page_number">
-              117/228
+              118/243
             </aside>
 
           </footer>
@@ -4532,7 +4573,7 @@ res1: Double = 2.0
             </aside>
             
             <aside class="page_number">
-              118/228
+              119/243
             </aside>
 
           </footer>
@@ -4565,7 +4606,7 @@ res1: Double = 2.0
             </aside>
             
             <aside class="page_number">
-              119/228
+              120/243
             </aside>
 
           </footer>
@@ -4601,7 +4642,7 @@ res1: Double = 2.0
             </aside>
             
             <aside class="page_number">
-              120/228
+              121/243
             </aside>
 
           </footer>
@@ -4614,7 +4655,7 @@ res1: Double = 2.0
           <div class="inner">
             
             
-            <section><pre><code>scala&gt; val r0 = Range(0,5,1)
+            <section><pre><code>scala&gt; val r0 = Range(0, 5, 1)
 r0: Range = Range(0, 1, 2, 3, 4)
 scala&gt; val r1 = 0 until 5
 r1: Range = Range(0, 1, 2, 3, 4)
@@ -4638,7 +4679,42 @@ r2: Range = Range(0, 2, 4)
             </aside>
             
             <aside class="page_number">
-              121/228
+              122/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><pre><code>scala&gt; val r = 0 until 5
+r: Range = Range(0, 1, 2, 3, 4)
+scala&gt; r.zip(r.tail)
+res68: IndexedSeq[(Int, Int)] = Vector((0,1), (1,2), (2,3), (3,4))
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              123/243
             </aside>
 
           </footer>
@@ -4676,7 +4752,7 @@ res10: SortedSet[String] = TreeSet(hello, world)
             </aside>
             
             <aside class="page_number">
-              122/228
+              124/243
             </aside>
 
           </footer>
@@ -4713,7 +4789,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
             </aside>
             
             <aside class="page_number">
-              123/228
+              125/243
             </aside>
 
           </footer>
@@ -4748,7 +4824,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
             </aside>
             
             <aside class="page_number">
-              124/228
+              126/243
             </aside>
 
           </footer>
@@ -4779,7 +4855,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
             </aside>
             
             <aside class="page_number">
-              125/228
+              127/243
             </aside>
 
           </footer>
@@ -4810,7 +4886,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
             </aside>
             
             <aside class="page_number">
-              126/228
+              128/243
             </aside>
 
           </footer>
@@ -4822,7 +4898,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Lecture 4: Options &amp; Combinators</h1></header>
+            <header><h1>Lecture 4: Combinators</h1></header>
             
             
           </div>
@@ -4841,7 +4917,7 @@ res4: Map[Char,Int] = Map((a,1), (b,2))
             </aside>
             
             <aside class="page_number">
-              127/228
+              129/243
             </aside>
 
           </footer>
@@ -4880,7 +4956,7 @@ use for their real work and their main goal."</p>
             </aside>
             
             <aside class="page_number">
-              128/228
+              130/243
             </aside>
 
           </footer>
@@ -4911,7 +4987,7 @@ use for their real work and their main goal."</p>
             </aside>
             
             <aside class="page_number">
-              129/228
+              131/243
             </aside>
 
           </footer>
@@ -4947,7 +5023,7 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              130/228
+              132/243
             </aside>
 
           </footer>
@@ -4984,7 +5060,7 @@ doubled: Unit = ()
             </aside>
             
             <aside class="page_number">
-              131/228
+              133/243
             </aside>
 
           </footer>
@@ -5024,43 +5100,7 @@ res2: List[Int] = List(2, 4)
             </aside>
             
             <aside class="page_number">
-              132/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>zip</h1></header>
-            
-            
-            <section><p><code>zip</code> aggregates the contents of two <code>Iterable</code>s into a single <code>Iterable</code> of tuples.</p>
-<pre><code>scala&gt; List(1, 2, 3).zip(List("a", "b", "c"))
-res0: List[(Int, String)] = List((1,a), (2,b), (3,c))
-</code></pre></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              133/228
+              134/243
             </aside>
 
           </footer>
@@ -5075,7 +5115,7 @@ res0: List[(Int, String)] = List((1,a), (2,b), (3,c))
             <header><h1>partition</h1></header>
             
             
-            <section><p><code>partition</code> splits a list based on where it falls with respect to a predicate function.</p>
+            <section><p><code>partition</code> splits a list based on where it falls with respect to the predicate function.</p>
 <pre><code>scala&gt; val numbers = List(1, 2, 3, 4, 5, 6)
 scala&gt; numbers.partition(_ % 2 == 0)
 res0: (List[Int], List[Int]) = (List(2, 4, 6),List(1, 3, 5))
@@ -5097,7 +5137,7 @@ res0: (List[Int], List[Int]) = (List(2, 4, 6),List(1, 3, 5))
             </aside>
             
             <aside class="page_number">
-              134/228
+              135/243
             </aside>
 
           </footer>
@@ -5109,13 +5149,12 @@ res0: (List[Int], List[Int]) = (List(2, 4, 6),List(1, 3, 5))
         <div class="slide">
           <div class="inner">
             
-            <header><h1>find</h1></header>
+            <header><h1>exists</h1></header>
             
             
-            <section><p><code>find</code> returns the first element of a collection that matches a predicate function.</p>
-<p>Note that it returns an <code>Option</code>. More on <code>Option</code>s in a moment.</p>
-<pre><code>scala&gt; numbers.find((i: Int) =&gt; i &gt; 5)
-res0: Option[Int] = Some(6)
+            <section><p><code>exists</code> determines whether there exists an element satisfying the predicate function.</p>
+<pre><code>scala&gt; List(1,2,3) exists (_%2 ==0)
+res69: Boolean = true
 </code></pre></section>
             
           </div>
@@ -5134,43 +5173,7 @@ res0: Option[Int] = Some(6)
             </aside>
             
             <aside class="page_number">
-              135/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>drop</h1></header>
-            
-            
-            <section><p><code>drop</code> drops the first <code>i</code> elements</p>
-<pre><code>scala&gt; numbers.drop(3)
-res0: List[Int] = List(4, 5, 6)
-</code></pre></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              136/228
+              136/243
             </aside>
 
           </footer>
@@ -5206,7 +5209,7 @@ res0: List[Int] = List(2, 3, 4, 5, 6)
             </aside>
             
             <aside class="page_number">
-              137/228
+              137/243
             </aside>
 
           </footer>
@@ -5223,7 +5226,9 @@ res0: List[Int] = List(2, 3, 4, 5, 6)
             
             <section><p>0 is the starting value (Remember that numbers is a <code>List[Int]</code>), and <code>m</code> acts as an accumulator.</p>
 <pre><code>scala&gt; numbers.foldLeft(0) {
-     |   (m: Int, n: Int) =&gt; println("m: " + m + " n: " + n); m + n }
+     |   (m: Int, n: Int) =&gt;
+     |   println("m: " + m + " n: " + n); m + n
+     | }
 m: 0 n: 1
 m: 1 n: 2
 m: 3 n: 3
@@ -5249,7 +5254,7 @@ res0: Int = 21
             </aside>
             
             <aside class="page_number">
-              138/228
+              138/243
             </aside>
 
           </footer>
@@ -5266,7 +5271,9 @@ res0: Int = 21
             
             <section><p>runs in the opposite direction as <code>foldLeft</code>. Not tail-recursive.</p>
 <pre><code>scala&gt; numbers.foldRight(0) {
-     |   (m: Int, n: Int) =&gt; println("m: " + m + " n: " + n); m + n }  
+     |   (m: Int, n: Int) =&gt;
+     |   println("m: " + m + " n: " + n); m + n
+     | }  
 m: 6 n: 0
 m: 5 n: 6
 m: 4 n: 11
@@ -5292,7 +5299,7 @@ res0: Int = 21
             </aside>
             
             <aside class="page_number">
-              139/228
+              139/243
             </aside>
 
           </footer>
@@ -5328,7 +5335,7 @@ res0: List[Int] = List(1, 2, 3, 4)
             </aside>
             
             <aside class="page_number">
-              140/228
+              140/243
             </aside>
 
           </footer>
@@ -5366,7 +5373,7 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              141/228
+              141/243
             </aside>
 
           </footer>
@@ -5378,8 +5385,12 @@ res0: List[Int] = List(2, 4, 6, 8)
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Option</h1></header>
+            <header><h1>groupBy</h1></header>
             
+            
+            <section><p><code>groupBy</code> is another frequently used combinator groups the elements of a collection according to the range of a grouping function.</p>
+<p>!scala
+  def groupBy [K] (f: (A) ⇒ K): Map[K, Traversable[A]]</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -5397,7 +5408,105 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              142/228
+              142/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>!scala
+  scala&gt; val cats = List("Tiger", "Lion", "Puma", "Leopard",
+       |                   "Jaguar", "Cheetah", "Bobcat")
+  cats: List[String] = List(Tiger, Lion, Puma, Leopard, Jaguar, Cheetah, Bobcat)
+  scala&gt; cats.groupBy(_.length)
+  res0: Map[Int,List[String]] = Map(5 -&gt; List(Tiger),
+                                    4 -&gt; List(Lion, Puma),
+                                    7 -&gt; List(Leopard, Cheetah),
+                                    6 -&gt; List(Jaguar, Bobcat))</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              143/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="page_number">
+              /243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><blockquote>
+<p>Almost all designs fall into the ‘compiler’ or ‘interpreter’ pattern, using a model of the data and functions on that data.
+- <a href="http://stackoverflow.com/questions/27852709/enterprise-patterns-with-functional-programming/27860072#27860072">Don Stewart</a></p>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              144/243
             </aside>
 
           </footer>
@@ -5430,7 +5539,7 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              143/228
+              145/243
             </aside>
 
           </footer>
@@ -5466,7 +5575,7 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              144/228
+              146/243
             </aside>
 
           </footer>
@@ -5502,7 +5611,7 @@ res0: List[Int] = List(2, 4, 6, 8)
             </aside>
             
             <aside class="page_number">
-              145/228
+              147/243
             </aside>
 
           </footer>
@@ -5542,7 +5651,7 @@ res1: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              146/228
+              148/243
             </aside>
 
           </footer>
@@ -5579,7 +5688,7 @@ res1: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              147/228
+              149/243
             </aside>
 
           </footer>
@@ -5619,7 +5728,7 @@ res1: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              148/228
+              150/243
             </aside>
 
           </footer>
@@ -5660,7 +5769,7 @@ res1: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              149/228
+              151/243
             </aside>
 
           </footer>
@@ -5697,7 +5806,7 @@ res8: Option[Int] = Some(5)
             </aside>
             
             <aside class="page_number">
-              150/228
+              152/243
             </aside>
 
           </footer>
@@ -5732,7 +5841,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              151/228
+              153/243
             </aside>
 
           </footer>
@@ -5770,7 +5879,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              152/228
+              154/243
             </aside>
 
           </footer>
@@ -5803,7 +5912,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              153/228
+              155/243
             </aside>
 
           </footer>
@@ -5828,7 +5937,7 @@ res47: Option[Int] = None
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -5862,7 +5971,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              154/228
+              156/243
             </aside>
 
           </footer>
@@ -5901,7 +6010,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              155/228
+              157/243
             </aside>
 
           </footer>
@@ -5943,7 +6052,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              156/228
+              158/243
             </aside>
 
           </footer>
@@ -5975,7 +6084,7 @@ res47: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              157/228
+              159/243
             </aside>
 
           </footer>
@@ -6016,7 +6125,7 @@ res2: Option[Int] = Some(7)
             </aside>
             
             <aside class="page_number">
-              158/228
+              160/243
             </aside>
 
           </footer>
@@ -6054,7 +6163,7 @@ res3: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              159/228
+              161/243
             </aside>
 
           </footer>
@@ -6090,7 +6199,7 @@ res3: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              160/228
+              162/243
             </aside>
 
           </footer>
@@ -6115,7 +6224,7 @@ res3: Option[Int] = None
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -6149,7 +6258,7 @@ res3: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              161/228
+              163/243
             </aside>
 
           </footer>
@@ -6184,7 +6293,7 @@ res3: Option[Int] = None
             </aside>
             
             <aside class="page_number">
-              162/228
+              164/243
             </aside>
 
           </footer>
@@ -6221,7 +6330,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              163/228
+              165/243
             </aside>
 
           </footer>
@@ -6257,7 +6366,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              164/228
+              166/243
             </aside>
 
           </footer>
@@ -6282,7 +6391,7 @@ scala&gt; lift(math.pow)
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -6316,7 +6425,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              165/228
+              167/243
             </aside>
 
           </footer>
@@ -6356,7 +6465,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              166/228
+              168/243
             </aside>
 
           </footer>
@@ -6398,7 +6507,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              167/228
+              169/243
             </aside>
 
           </footer>
@@ -6436,7 +6545,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              168/228
+              170/243
             </aside>
 
           </footer>
@@ -6467,7 +6576,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              169/228
+              171/243
             </aside>
 
           </footer>
@@ -6504,7 +6613,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              170/228
+              172/243
             </aside>
 
           </footer>
@@ -6538,7 +6647,7 @@ scala&gt; lift(math.pow)
             </aside>
             
             <aside class="page_number">
-              171/228
+              173/243
             </aside>
 
           </footer>
@@ -6575,7 +6684,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              172/228
+              174/243
             </aside>
 
           </footer>
@@ -6608,7 +6717,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              173/228
+              175/243
             </aside>
 
           </footer>
@@ -6633,7 +6742,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -6672,7 +6781,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              174/228
+              176/243
             </aside>
 
           </footer>
@@ -6711,7 +6820,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              175/228
+              177/243
             </aside>
 
           </footer>
@@ -6748,7 +6857,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              176/228
+              178/243
             </aside>
 
           </footer>
@@ -6784,7 +6893,7 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
             </aside>
             
             <aside class="page_number">
-              177/228
+              179/243
             </aside>
 
           </footer>
@@ -6796,7 +6905,44 @@ res56: Option[List[Int]] = Some(List(1, 3, 4))
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Lecture 5: Products and Coproducts</h1></header>
+            
+            <section><p>Generally speaking, you know there is only one thing that can go wrong, use <code>Option</code> or its extension <code>Either</code>.
+$$
+$$
+If you know there is multiple things that can go wrong, roll your own Trait.
+$$
+$$
+Only use exceptions if you don't know what can go wrong.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              180/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Lecture 4a: Products and Coproducts</h1></header>
             
             
             <section><!---
@@ -6820,7 +6966,7 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
             </aside>
             
             <aside class="page_number">
-              178/228
+              181/243
             </aside>
 
           </footer>
@@ -6853,7 +6999,38 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
             </aside>
             
             <aside class="page_number">
-              179/228
+              182/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>https://github.com/finagle/finch/blob/master/docs/cookbook.md</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              183/243
             </aside>
 
           </footer>
@@ -6878,7 +7055,7 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -6903,32 +7080,7 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
           <footer>
             
             <aside class="page_number">
-              /228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source:  -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -6968,7 +7120,7 @@ res1: Int = 80
             </aside>
             
             <aside class="page_number">
-              180/228
+              184/243
             </aside>
 
           </footer>
@@ -7005,7 +7157,7 @@ res1: Int = 80
             </aside>
             
             <aside class="page_number">
-              181/228
+              185/243
             </aside>
 
           </footer>
@@ -7042,7 +7194,7 @@ res1: Int = 80
             </aside>
             
             <aside class="page_number">
-              182/228
+              186/243
             </aside>
 
           </footer>
@@ -7078,7 +7230,7 @@ res0: (Int, Int) = (1,2)
             </aside>
             
             <aside class="page_number">
-              183/228
+              187/243
             </aside>
 
           </footer>
@@ -7118,7 +7270,7 @@ res0: scala.collection.immutable.Map[Char,Int] = Map(a -&gt; 97)
             </aside>
             
             <aside class="page_number">
-              184/228
+              188/243
             </aside>
 
           </footer>
@@ -7152,7 +7304,7 @@ ext: Map[String,Int] = Map((steve,100), (bob,101), (joe,201))
             </aside>
             
             <aside class="page_number">
-              185/228
+              189/243
             </aside>
 
           </footer>
@@ -7186,7 +7338,7 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              186/228
+              190/243
             </aside>
 
           </footer>
@@ -7220,7 +7372,455 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              187/228
+              191/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="page_number">
+              /243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Lecture 5: Strictness and Laziness</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              192/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Views</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              193/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Streams</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">trait</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">+A</span><span class="o">]</span>
+<span class="nc">case</span> <span class="k">object</span> <span class="nc">Empty</span> <span class="k">extends</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Cons</span><span class="o">[</span><span class="kt">+A</span><span class="o">](</span><span class="n">h</span><span class="k">:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">,</span> <span class="n">t</span><span class="k">:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span> <span class="k">extends</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              194/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">Stream</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">cons</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">hd</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">,</span> <span class="n">tl</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">lazy</span> <span class="k">val</span> <span class="n">head</span> <span class="k">=</span> <span class="n">hd</span>
+    <span class="k">lazy</span> <span class="k">val</span> <span class="n">tail</span> <span class="k">=</span> <span class="n">tl</span>
+    <span class="nc">Cons</span><span class="o">(()</span> <span class="k">=&gt;</span> <span class="n">head</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="n">tail</span><span class="o">)</span>
+  <span class="o">}</span>
+  <span class="k">def</span> <span class="n">empty</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Empty</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">as</span><span class="k">:</span> <span class="kt">A*</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">empty</span> <span class="k">else</span> <span class="n">cons</span><span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">head</span><span class="o">,</span> <span class="n">apply</span><span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">tail</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              195/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">empty</span><span class="o">))</span>
+<span class="nc">Stream</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+<span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">1000</span><span class="o">).</span><span class="n">toStream</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              196/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ones</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">ones</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              197/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Stream cons operator</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">from</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">n</span> <span class="o">#::</span> <span class="n">from</span><span class="o">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              198/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fibs</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">go</span><span class="o">(</span><span class="n">f0</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">f1</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+    <span class="n">f0</span> <span class="o">#::</span> <span class="n">go</span><span class="o">(</span><span class="n">f1</span><span class="o">,</span> <span class="n">f0</span><span class="o">+</span><span class="n">f1</span><span class="o">)</span>
+  <span class="n">go</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              199/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><pre><code>scala&gt; fibs take (8) toList
+res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              200/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">sieve</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">head</span> <span class="o">#::</span> <span class="n">sieve</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="n">tail</span> <span class="n">filter</span> <span class="o">(</span><span class="k">_</span> <span class="o">%</span> <span class="n">s</span><span class="o">.</span><span class="n">head</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              201/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">enumeratePrimes</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">sieve</span><span class="o">(</span><span class="n">from</span><span class="o">(</span><span class="mi">2</span><span class="o">)).</span><span class="n">take</span><span class="o">(</span><span class="n">n</span><span class="o">).</span><span class="n">toList</span>
+<span class="n">println</span><span class="o">(</span><span class="n">enumeratePrimes</span><span class="o">(</span><span class="mi">25</span><span class="o">).</span><span class="n">mkString</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">))</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              202/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">from</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">to</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">via</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="nc">Stream</span><span class="o">(</span><span class="s">s&quot;Move disk from peg </span><span class="si">$from</span><span class="s"> to peg </span><span class="si">$to</span><span class="s">&quot;</span><span class="o">)</span>
+  <span class="k">else</span> <span class="o">{</span>
+    <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">via</span><span class="o">,</span> <span class="n">to</span><span class="o">)</span> <span class="o">#:::</span>
+    <span class="n">hanoi</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">to</span><span class="o">,</span> <span class="n">via</span><span class="o">)</span> <span class="o">#:::</span>
+    <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">via</span><span class="o">,</span> <span class="n">to</span><span class="o">,</span> <span class="n">from</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              203/243
             </aside>
 
           </footer>
@@ -7251,7 +7851,7 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              188/228
+              204/243
             </aside>
 
           </footer>
@@ -7263,8 +7863,13 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Lecture 7: ?</h1></header>
+            <header><h1>Greenspun's Tenth Rule</h1></header>
             
+            
+            <section><blockquote>
+<p>Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp.
+- Phillip Greenspun</p>
+</blockquote></section>
             
           </div>
           <div class="presenter_notes">
@@ -7282,7 +7887,32 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              189/228
+              205/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="page_number">
+              /243
             </aside>
 
           </footer>
@@ -7294,7 +7924,7 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Lecture 8: Variance and Bounds</h1></header>
+            <header><h1>Lecture n: Implicits</h1></header>
             
             
             <section><!-- http://eed3si9n.com/learning-scalaz/polymorphism.html --></section>
@@ -7315,7 +7945,7 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              190/228
+              206/243
             </aside>
 
           </footer>
@@ -7346,7 +7976,7 @@ res0: Map[String,Int] = Map((steve,100), (bob,101))
             </aside>
             
             <aside class="page_number">
-              191/228
+              207/243
             </aside>
 
           </footer>
@@ -7387,7 +8017,7 @@ res1: Car = Car(Civic)
             </aside>
             
             <aside class="page_number">
-              192/228
+              208/243
             </aside>
 
           </footer>
@@ -7424,7 +8054,7 @@ res1: Car = Car(Civic)
             </aside>
             
             <aside class="page_number">
-              193/228
+              209/243
             </aside>
 
           </footer>
@@ -7457,7 +8087,7 @@ plus: [A &lt;: Plus[A]](a1: A, a2: A)A
             </aside>
             
             <aside class="page_number">
-              194/228
+              210/243
             </aside>
 
           </footer>
@@ -7489,7 +8119,7 @@ plus: [A &lt;: Plus[A]](a1: A, a2: A)A
             </aside>
             
             <aside class="page_number">
-              195/228
+              211/243
             </aside>
 
           </footer>
@@ -7523,7 +8153,7 @@ plus: [A &lt;: Plus[A]](a1: A, a2: A)A
             </aside>
             
             <aside class="page_number">
-              196/228
+              212/243
             </aside>
 
           </footer>
@@ -7560,7 +8190,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              197/228
+              213/243
             </aside>
 
           </footer>
@@ -7596,7 +8226,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              198/228
+              214/243
             </aside>
 
           </footer>
@@ -7629,7 +8259,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              199/228
+              215/243
             </aside>
 
           </footer>
@@ -7666,7 +8296,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              200/228
+              216/243
             </aside>
 
           </footer>
@@ -7698,7 +8328,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              201/228
+              217/243
             </aside>
 
           </footer>
@@ -7735,7 +8365,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              202/228
+              218/243
             </aside>
 
           </footer>
@@ -7768,7 +8398,387 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              203/228
+              219/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Application: Thrush Combinator</h1></header>
+            
+            
+            <section><!--- http://debasishg.blogspot.com/2009/09/thrush-combinator-in-scala.html --></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              220/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>In his classic book <a href="http://www.amazon.com/Mock-Mockingbird-Other-Logic-Puzzles/dp/0192801422">To Mock a Mockingbird</a>, Raymond Smullyan teaches combinatory logic using the analogy of songbirds in a forest.</p>
+<p>More than the implementation, the bird names have gone a long way in establishing a common vocabulary of programming idioms and techniques.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              221/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>A Thrush is defined by the following condition: Txy = yx. Thrush reverses the order of evaluation.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              222/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><p>Suppose you have the following:</p>
+<div class="highlight"><pre><span></span><span class="o">((</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="o">))((</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">100</span><span class="o">).</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">).</span><span class="n">foldLeft</span><span class="o">(</span><span class="mi">0</span><span class="o">)(</span><span class="k">_</span><span class="o">+</span><span class="k">_</span><span class="o">))</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              223/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>case class Thrush<a href="x: A">A</a> {
+  def into<a href="g: A =&gt; B">B</a>: B = {
+    g(x)
+  }
+}</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              224/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p>Thrush((1 to 100)
+  .filter(<em> % 2 != 0)
+  .foldLeft(0)(</em> + _))
+  .into((x: Int) =&gt; x * x)</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              225/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Application: Kestrel Combinator</h1></header>
+            
+            
+            <section><!---http://jamesgolick.com/2010/2/8/monkey-patching-single-responsibility-principle-and-scala-implicits.html
+http://debasishg.blogspot.com/2009/09/side-effects-with-kestrel-in-scala.html --></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              226/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tapper</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">tapMe</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">tap</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="o">(</span><span class="kt">A</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="nc">Unit</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">f</span><span class="o">(</span><span class="n">tapMe</span><span class="o">)</span>
+    <span class="n">tapMe</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              227/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><pre><code>scala&gt; val tapper = new Tapper("hello!")
+tapper: Tapper[java.lang.String] = Tapper@5e53bbfa
+scala&gt; tapper.tap { s =&gt; println(s) }
+hello!
+res0: java.lang.String = hello!
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              228/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">Tap</span> <span class="o">{</span>
+  <span class="k">implicit</span> <span class="k">def</span> <span class="n">any2Tapper</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">toTap</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Tapper</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Tapper</span><span class="o">(</span><span class="n">toTap</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              229/243
+            </aside>
+
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><pre><code>scala&gt; "hello!".tap { s =&gt; println(s) }
+error: value tap is not a member of java.lang.String
+scala&gt; import Tap._
+import Tap._
+scala&gt; "hello!".tap { s =&gt; println(s) }
+hello!
+res2: java.lang.String = hello!
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+
+
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              230/243
             </aside>
 
           </footer>
@@ -7799,7 +8809,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              204/228
+              231/243
             </aside>
 
           </footer>
@@ -7830,7 +8840,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              205/228
+              232/243
             </aside>
 
           </footer>
@@ -7865,7 +8875,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              206/228
+              233/243
             </aside>
 
           </footer>
@@ -7896,7 +8906,7 @@ plus: <a href="a1: A, a2: A">A</a>(implicit evidence$1: Plus[A])A</p></section>
             </aside>
             
             <aside class="page_number">
-              207/228
+              234/243
             </aside>
 
           </footer>
@@ -7938,7 +8948,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              208/228
+              235/243
             </aside>
 
           </footer>
@@ -7985,7 +8995,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              209/228
+              236/243
             </aside>
 
           </footer>
@@ -8016,7 +9026,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              210/228
+              237/243
             </aside>
 
           </footer>
@@ -8048,7 +9058,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              211/228
+              238/243
             </aside>
 
           </footer>
@@ -8073,7 +9083,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
           <footer>
             
             <aside class="page_number">
-              /228
+              /243
             </aside>
 
           </footer>
@@ -8105,7 +9115,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              212/228
+              239/243
             </aside>
 
           </footer>
@@ -8146,7 +9156,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              213/228
+              240/243
             </aside>
 
           </footer>
@@ -8184,7 +9194,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              214/228
+              241/243
             </aside>
 
           </footer>
@@ -8215,455 +9225,7 @@ http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
             </aside>
             
             <aside class="page_number">
-              215/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>Lecture 9: Strictness and Laziness</h1></header>
-            
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              216/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>Views</h1></header>
-            
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              217/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Streams</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">trait</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">+A</span><span class="o">]</span>
-<span class="nc">case</span> <span class="k">object</span> <span class="nc">Empty</span> <span class="k">extends</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
-<span class="k">case</span> <span class="k">class</span> <span class="nc">Cons</span><span class="o">[</span><span class="kt">+A</span><span class="o">](</span><span class="n">h</span><span class="k">:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">,</span> <span class="n">t</span><span class="k">:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span> <span class="k">extends</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              218/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">Stream</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">cons</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">hd</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">,</span> <span class="n">tl</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="nc">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="k">lazy</span> <span class="k">val</span> <span class="n">head</span> <span class="k">=</span> <span class="n">hd</span>
-    <span class="k">lazy</span> <span class="k">val</span> <span class="n">tail</span> <span class="k">=</span> <span class="n">tl</span>
-    <span class="nc">Cons</span><span class="o">(()</span> <span class="k">=&gt;</span> <span class="n">head</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="n">tail</span><span class="o">)</span>
-  <span class="o">}</span>
-  <span class="k">def</span> <span class="n">empty</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Empty</span>
-  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">as</span><span class="k">:</span> <span class="kt">A*</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">empty</span> <span class="k">else</span> <span class="n">cons</span><span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">head</span><span class="o">,</span> <span class="n">apply</span><span class="o">(</span><span class="n">as</span><span class="o">.</span><span class="n">tail</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">))</span>
-<span class="o">}</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              219/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">empty</span><span class="o">))</span>
-<span class="nc">Stream</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
-<span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">1000</span><span class="o">).</span><span class="n">toStream</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              220/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ones</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">ones</span><span class="o">)</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              221/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Stream cons operator</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">from</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">n</span> <span class="o">#::</span> <span class="n">from</span><span class="o">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              222/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fibs</span> <span class="k">=</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">go</span><span class="o">(</span><span class="n">f0</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">f1</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
-    <span class="n">f0</span> <span class="o">#::</span> <span class="n">go</span><span class="o">(</span><span class="n">f1</span><span class="o">,</span> <span class="n">f0</span><span class="o">+</span><span class="n">f1</span><span class="o">)</span>
-  <span class="n">go</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
-<span class="o">}</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              223/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            
-            <section><pre><code>scala&gt; fibs take (8) toList
-res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
-</code></pre></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              224/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">sieve</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">head</span> <span class="o">#::</span> <span class="n">sieve</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="n">tail</span> <span class="n">filter</span> <span class="o">(</span><span class="k">_</span> <span class="o">%</span> <span class="n">s</span><span class="o">.</span><span class="n">head</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">))</span>
-<span class="o">}</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              225/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">enumeratePrimes</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">sieve</span><span class="o">(</span><span class="n">from</span><span class="o">(</span><span class="mi">2</span><span class="o">)).</span><span class="n">take</span><span class="o">(</span><span class="n">n</span><span class="o">).</span><span class="n">toList</span>
-<span class="n">println</span><span class="o">(</span><span class="n">enumeratePrimes</span><span class="o">(</span><span class="mi">25</span><span class="o">).</span><span class="n">mkString</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">))</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              226/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            
-            <section><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">from</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">to</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">via</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="nc">Stream</span><span class="o">(</span><span class="s">s&quot;Move disk from peg </span><span class="si">$from</span><span class="s"> to peg </span><span class="si">$to</span><span class="s">&quot;</span><span class="o">)</span>
-  <span class="k">else</span> <span class="o">{</span>
-    <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">via</span><span class="o">,</span> <span class="n">to</span><span class="o">)</span> <span class="o">#:::</span>
-    <span class="n">hanoi</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">to</span><span class="o">,</span> <span class="n">via</span><span class="o">)</span> <span class="o">#:::</span>
-    <span class="n">hanoi</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">via</span><span class="o">,</span> <span class="n">to</span><span class="o">,</span> <span class="n">from</span><span class="o">)</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              227/228
-            </aside>
-
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source:  -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-
-
-          <footer>
-            
-            <aside class="page_number">
-              /228
+              242/243
             </aside>
 
           </footer>
@@ -8694,7 +9256,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
             </aside>
             
             <aside class="page_number">
-              228/228
+              243/243
             </aside>
 
           </footer>
@@ -8740,103 +9302,103 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-6">
-        <th><a href="#slide6">A Bit of History</a></th>
+        <th><a href="#slide6">Start Your REPLs!</a></th>
         <td><a href="#slide6">6</a></td>
       </tr>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">OpenMP (1997)</a></th>
+        <th><a href="#slide7">Basic Types &amp; Type Hierarchy</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">MapReduce (2004)</a></th>
+        <th><a href="#slide8">-</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
       
       <tr id="toc-row-9">
-        <th><a href="#slide9">Hadoop (2006)</a></th>
+        <th><a href="#slide9">Vals and Vars</a></th>
         <td><a href="#slide9">9</a></td>
       </tr>
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Kafka and Spark (2012)</a></th>
+        <th><a href="#slide10">Type Declaration and Inference</a></th>
         <td><a href="#slide10">10</a></td>
       </tr>
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Start Your REPLs!</a></th>
+        <th><a href="#slide11">Semicolons</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Basic Types &amp; Type Hierarchy</a></th>
+        <th><a href="#slide12">Functions</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">-</a></th>
+        <th><a href="#slide13">Never use <code>return</code> (<a href="https://tpolecat.github.io/2014/05/09/return.html">why?</a>)</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Vals and Vars</a></th>
+        <th><a href="#slide14">Functions vs Procedures</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Type Declaration and Inference</a></th>
+        <th><a href="#slide15">Lexical Scoping</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">Semicolons</a></th>
+        <th><a href="#slide16">Recursion</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">Functions</a></th>
+        <th><a href="#slide17">Function Literals</a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Never use <code>return</code> (<a href="https://tpolecat.github.io/2014/05/09/return.html">why?</a>)</a></th>
+        <th><a href="#slide18">-</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">Functions vs Procedures</a></th>
+        <th><a href="#slide19">Procedures vs Processes</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">Lexical Scoping</a></th>
+        <th><a href="#slide20">Tail Recursion</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Recursion</a></th>
+        <th><a href="#slide21">Iterative Processes</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
       
       <tr id="toc-row-22">
-        <th><a href="#slide22">Function Literals</a></th>
+        <th><a href="#slide22">-</a></th>
         <td><a href="#slide22">22</a></td>
       </tr>
       
@@ -8848,19 +9410,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-24">
-        <th><a href="#slide24">Procedures vs Processes</a></th>
+        <th><a href="#slide24">-</a></th>
         <td><a href="#slide24">24</a></td>
       </tr>
       
       
       <tr id="toc-row-25">
-        <th><a href="#slide25">Tail Recursion</a></th>
+        <th><a href="#slide25">-</a></th>
         <td><a href="#slide25">25</a></td>
       </tr>
       
       
       <tr id="toc-row-26">
-        <th><a href="#slide26">Iterative Processes</a></th>
+        <th><a href="#slide26">Application: Tower of Hanoi</a></th>
         <td><a href="#slide26">26</a></td>
       </tr>
       
@@ -8878,73 +9440,73 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-29">
-        <th><a href="#slide29">-</a></th>
+        <th><a href="#slide29">Challenge Question</a></th>
         <td><a href="#slide29">29</a></td>
       </tr>
       
       
       <tr id="toc-row-30">
-        <th><a href="#slide30">-</a></th>
+        <th><a href="#slide30">Lecture 2: Currying</a></th>
         <td><a href="#slide30">30</a></td>
       </tr>
       
       
       <tr id="toc-row-31">
-        <th><a href="#slide31">Application: Tower of Hanoi</a></th>
+        <th><a href="#slide31">John Backus</a></th>
         <td><a href="#slide31">31</a></td>
       </tr>
       
       
       <tr id="toc-row-32">
-        <th><a href="#slide32">-</a></th>
+        <th><a href="#slide32">Avoiding the von Neumann Bottleneck</a></th>
         <td><a href="#slide32">32</a></td>
       </tr>
       
       
       <tr id="toc-row-33">
-        <th><a href="#slide33">-</a></th>
+        <th><a href="#slide33">Use var sparingly</a></th>
         <td><a href="#slide33">33</a></td>
       </tr>
       
       
       <tr id="toc-row-34">
-        <th><a href="#slide34">Challenge Question</a></th>
+        <th><a href="#slide34">Use side effects sparingly</a></th>
         <td><a href="#slide34">34</a></td>
       </tr>
       
       
       <tr id="toc-row-35">
-        <th><a href="#slide35">Lecture 2: Currying</a></th>
+        <th><a href="#slide35">Application: QuickSort</a></th>
         <td><a href="#slide35">35</a></td>
       </tr>
       
       
       <tr id="toc-row-36">
-        <th><a href="#slide36">John Backus</a></th>
+        <th><a href="#slide36">-</a></th>
         <td><a href="#slide36">36</a></td>
       </tr>
       
       
       <tr id="toc-row-37">
-        <th><a href="#slide37">Avoiding the von Neumann Bottleneck</a></th>
+        <th><a href="#slide37">-</a></th>
         <td><a href="#slide37">37</a></td>
       </tr>
       
       
       <tr id="toc-row-38">
-        <th><a href="#slide38">Use var sparingly</a></th>
+        <th><a href="#slide38">Functional Combinators</a></th>
         <td><a href="#slide38">38</a></td>
       </tr>
       
       
       <tr id="toc-row-39">
-        <th><a href="#slide39">Use side effects sparingly</a></th>
+        <th><a href="#slide39">-</a></th>
         <td><a href="#slide39">39</a></td>
       </tr>
       
       
       <tr id="toc-row-40">
-        <th><a href="#slide40">Application: QuickSort</a></th>
+        <th><a href="#slide40">Scala's <code>_</code></a></th>
         <td><a href="#slide40">40</a></td>
       </tr>
       
@@ -8962,19 +9524,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-43">
-        <th><a href="#slide43">Higher-Order Functions</a></th>
+        <th><a href="#slide43">What are <code>function1</code> and <code>function2</code>?</a></th>
         <td><a href="#slide43">43</a></td>
       </tr>
       
       
       <tr id="toc-row-44">
-        <th><a href="#slide44">-</a></th>
+        <th><a href="#slide44">Partially Applied Functions</a></th>
         <td><a href="#slide44">44</a></td>
       </tr>
       
       
       <tr id="toc-row-45">
-        <th><a href="#slide45">Scala's <code>_</code></a></th>
+        <th><a href="#slide45">-</a></th>
         <td><a href="#slide45">45</a></td>
       </tr>
       
@@ -8986,19 +9548,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-47">
-        <th><a href="#slide47">-</a></th>
+        <th><a href="#slide47">Challenge Question</a></th>
         <td><a href="#slide47">47</a></td>
       </tr>
       
       
       <tr id="toc-row-48">
-        <th><a href="#slide48">What are <code>function1</code> and <code>function2</code>?</a></th>
+        <th><a href="#slide48">-</a></th>
         <td><a href="#slide48">48</a></td>
       </tr>
       
       
       <tr id="toc-row-49">
-        <th><a href="#slide49">Partially Applied Functions</a></th>
+        <th><a href="#slide49">-</a></th>
         <td><a href="#slide49">49</a></td>
       </tr>
       
@@ -9010,19 +9572,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-51">
-        <th><a href="#slide51">-</a></th>
+        <th><a href="#slide51">Currying</a></th>
         <td><a href="#slide51">51</a></td>
       </tr>
       
       
       <tr id="toc-row-52">
-        <th><a href="#slide52">Challenge Question</a></th>
+        <th><a href="#slide52">-</a></th>
         <td><a href="#slide52">52</a></td>
       </tr>
       
       
       <tr id="toc-row-53">
-        <th><a href="#slide53">-</a></th>
+        <th><a href="#slide53">Type inference</a></th>
         <td><a href="#slide53">53</a></td>
       </tr>
       
@@ -9040,19 +9602,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-56">
-        <th><a href="#slide56">Currying</a></th>
+        <th><a href="#slide56">-</a></th>
         <td><a href="#slide56">56</a></td>
       </tr>
       
       
       <tr id="toc-row-57">
-        <th><a href="#slide57">-</a></th>
+        <th><a href="#slide57">Application: Summing Functions</a></th>
         <td><a href="#slide57">57</a></td>
       </tr>
       
       
       <tr id="toc-row-58">
-        <th><a href="#slide58">Application: Summing Functions</a></th>
+        <th><a href="#slide58">-</a></th>
         <td><a href="#slide58">58</a></td>
       </tr>
       
@@ -9094,13 +9656,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-65">
-        <th><a href="#slide65">-</a></th>
+        <th><a href="#slide65">Application: Pascal's Triangle</a></th>
         <td><a href="#slide65">65</a></td>
       </tr>
       
       
       <tr id="toc-row-66">
-        <th><a href="#slide66">Application: Pascal's Triangle</a></th>
+        <th><a href="#slide66">-</a></th>
         <td><a href="#slide66">66</a></td>
       </tr>
       
@@ -9118,19 +9680,19 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-69">
-        <th><a href="#slide69">-</a></th>
+        <th><a href="#slide69">Application: Code Refactoring</a></th>
         <td><a href="#slide69">69</a></td>
       </tr>
       
       
       <tr id="toc-row-70">
-        <th><a href="#slide70">Application: Code Refactoring</a></th>
+        <th><a href="#slide70"><code>foldRight</code></a></th>
         <td><a href="#slide70">70</a></td>
       </tr>
       
       
       <tr id="toc-row-71">
-        <th><a href="#slide71"><code>foldRight</code></a></th>
+        <th><a href="#slide71">-</a></th>
         <td><a href="#slide71">71</a></td>
       </tr>
       
@@ -9148,49 +9710,49 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-74">
-        <th><a href="#slide74">-</a></th>
+        <th><a href="#slide74">Challenge Question</a></th>
         <td><a href="#slide74">74</a></td>
       </tr>
       
       
       <tr id="toc-row-75">
-        <th><a href="#slide75">Challenge Question</a></th>
+        <th><a href="#slide75">-</a></th>
         <td><a href="#slide75">75</a></td>
       </tr>
       
       
       <tr id="toc-row-76">
-        <th><a href="#slide76">-</a></th>
+        <th><a href="#slide76">Challenge Question</a></th>
         <td><a href="#slide76">76</a></td>
       </tr>
       
       
       <tr id="toc-row-77">
-        <th><a href="#slide77">Challenge Question</a></th>
+        <th><a href="#slide77">Hint</a></th>
         <td><a href="#slide77">77</a></td>
       </tr>
       
       
       <tr id="toc-row-78">
-        <th><a href="#slide78">Hint</a></th>
+        <th><a href="#slide78">Lecture 3: Traits and Classes</a></th>
         <td><a href="#slide78">78</a></td>
       </tr>
       
       
       <tr id="toc-row-79">
-        <th><a href="#slide79">Lecture 3: Traits and Classes</a></th>
+        <th><a href="#slide79">Objects</a></th>
         <td><a href="#slide79">79</a></td>
       </tr>
       
       
       <tr id="toc-row-80">
-        <th><a href="#slide80">Objects</a></th>
+        <th><a href="#slide80">Singleton Objects</a></th>
         <td><a href="#slide80">80</a></td>
       </tr>
       
       
       <tr id="toc-row-81">
-        <th><a href="#slide81">Singleton Objects</a></th>
+        <th><a href="#slide81">-</a></th>
         <td><a href="#slide81">81</a></td>
       </tr>
       
@@ -9202,25 +9764,25 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-83">
-        <th><a href="#slide83">-</a></th>
+        <th><a href="#slide83">Companion Objects</a></th>
         <td><a href="#slide83">83</a></td>
       </tr>
       
       
       <tr id="toc-row-84">
-        <th><a href="#slide84">Companion Objects</a></th>
+        <th><a href="#slide84">-</a></th>
         <td><a href="#slide84">84</a></td>
       </tr>
       
       
       <tr id="toc-row-85">
-        <th><a href="#slide85">-</a></th>
+        <th><a href="#slide85">Traits</a></th>
         <td><a href="#slide85">85</a></td>
       </tr>
       
       
       <tr id="toc-row-86">
-        <th><a href="#slide86">Traits</a></th>
+        <th><a href="#slide86">-</a></th>
         <td><a href="#slide86">86</a></td>
       </tr>
       
@@ -9232,13 +9794,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-88">
-        <th><a href="#slide88">-</a></th>
+        <th><a href="#slide88">Abstract Methods</a></th>
         <td><a href="#slide88">88</a></td>
       </tr>
       
       
       <tr id="toc-row-89">
-        <th><a href="#slide89">Abstract Methods</a></th>
+        <th><a href="#slide89">-</a></th>
         <td><a href="#slide89">89</a></td>
       </tr>
       
@@ -9262,31 +9824,31 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-93">
-        <th><a href="#slide93">-</a></th>
+        <th><a href="#slide93">Challenge Question</a></th>
         <td><a href="#slide93">93</a></td>
       </tr>
       
       
       <tr id="toc-row-94">
-        <th><a href="#slide94">Challenge Question</a></th>
+        <th><a href="#slide94">-</a></th>
         <td><a href="#slide94">94</a></td>
       </tr>
       
       
       <tr id="toc-row-95">
-        <th><a href="#slide95">-</a></th>
+        <th><a href="#slide95">Variance</a></th>
         <td><a href="#slide95">95</a></td>
       </tr>
       
       
       <tr id="toc-row-96">
-        <th><a href="#slide96">Case Classes</a></th>
+        <th><a href="#slide96">-</a></th>
         <td><a href="#slide96">96</a></td>
       </tr>
       
       
       <tr id="toc-row-97">
-        <th><a href="#slide97">-</a></th>
+        <th><a href="#slide97">Case Classes</a></th>
         <td><a href="#slide97">97</a></td>
       </tr>
       
@@ -9304,73 +9866,73 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-100">
-        <th><a href="#slide100">Application: Lists</a></th>
+        <th><a href="#slide100">-</a></th>
         <td><a href="#slide100">100</a></td>
       </tr>
       
       
       <tr id="toc-row-101">
-        <th><a href="#slide101">-</a></th>
+        <th><a href="#slide101">Application: Lists</a></th>
         <td><a href="#slide101">101</a></td>
       </tr>
       
       
       <tr id="toc-row-102">
-        <th><a href="#slide102"><code>apply</code> can be applied recursively</a></th>
+        <th><a href="#slide102">-</a></th>
         <td><a href="#slide102">102</a></td>
       </tr>
       
       
       <tr id="toc-row-103">
-        <th><a href="#slide103">-</a></th>
+        <th><a href="#slide103"><code>apply</code> can be applied recursively</a></th>
         <td><a href="#slide103">103</a></td>
       </tr>
       
       
       <tr id="toc-row-104">
-        <th><a href="#slide104">Application: Monoids</a></th>
+        <th><a href="#slide104">-</a></th>
         <td><a href="#slide104">104</a></td>
       </tr>
       
       
       <tr id="toc-row-105">
-        <th><a href="#slide105">-</a></th>
+        <th><a href="#slide105">Application: Monoids</a></th>
         <td><a href="#slide105">105</a></td>
       </tr>
       
       
       <tr id="toc-row-106">
-        <th><a href="#slide106">Challenge Question</a></th>
+        <th><a href="#slide106">-</a></th>
         <td><a href="#slide106">106</a></td>
       </tr>
       
       
       <tr id="toc-row-107">
-        <th><a href="#slide107">-</a></th>
+        <th><a href="#slide107">Challenge Question</a></th>
         <td><a href="#slide107">107</a></td>
       </tr>
       
       
       <tr id="toc-row-108">
-        <th><a href="#slide108">Immutable Collections Library</a></th>
+        <th><a href="#slide108">-</a></th>
         <td><a href="#slide108">108</a></td>
       </tr>
       
       
       <tr id="toc-row-109">
-        <th><a href="#slide109"><code>scala.collection.immutable</code></a></th>
+        <th><a href="#slide109">Immutable Collections Library</a></th>
         <td><a href="#slide109">109</a></td>
       </tr>
       
       
       <tr id="toc-row-110">
-        <th><a href="#slide110"><code>Traversable</code> vs <code>Iterable</code></a></th>
+        <th><a href="#slide110"><code>scala.collection.immutable</code></a></th>
         <td><a href="#slide110">110</a></td>
       </tr>
       
       
       <tr id="toc-row-111">
-        <th><a href="#slide111">-</a></th>
+        <th><a href="#slide111"><code>Traversable</code> vs <code>Iterable</code></a></th>
         <td><a href="#slide111">111</a></td>
       </tr>
       
@@ -9382,13 +9944,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-113">
-        <th><a href="#slide113">Seq</a></th>
+        <th><a href="#slide113">-</a></th>
         <td><a href="#slide113">113</a></td>
       </tr>
       
       
       <tr id="toc-row-114">
-        <th><a href="#slide114">-</a></th>
+        <th><a href="#slide114">Seq</a></th>
         <td><a href="#slide114">114</a></td>
       </tr>
       
@@ -9436,25 +9998,25 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-122">
-        <th><a href="#slide122">Set</a></th>
+        <th><a href="#slide122">-</a></th>
         <td><a href="#slide122">122</a></td>
       </tr>
       
       
       <tr id="toc-row-123">
-        <th><a href="#slide123">Map</a></th>
+        <th><a href="#slide123">-</a></th>
         <td><a href="#slide123">123</a></td>
       </tr>
       
       
       <tr id="toc-row-124">
-        <th><a href="#slide124">-</a></th>
+        <th><a href="#slide124">Set</a></th>
         <td><a href="#slide124">124</a></td>
       </tr>
       
       
       <tr id="toc-row-125">
-        <th><a href="#slide125">-</a></th>
+        <th><a href="#slide125">Map</a></th>
         <td><a href="#slide125">125</a></td>
       </tr>
       
@@ -9466,61 +10028,61 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-127">
-        <th><a href="#slide127">Lecture 4: Options &amp; Combinators</a></th>
+        <th><a href="#slide127">-</a></th>
         <td><a href="#slide127">127</a></td>
       </tr>
       
       
       <tr id="toc-row-128">
-        <th><a href="#slide128">Guy Steele</a></th>
+        <th><a href="#slide128">-</a></th>
         <td><a href="#slide128">128</a></td>
       </tr>
       
       
       <tr id="toc-row-129">
-        <th><a href="#slide129">Functional Combinators</a></th>
+        <th><a href="#slide129">Lecture 4: Combinators</a></th>
         <td><a href="#slide129">129</a></td>
       </tr>
       
       
       <tr id="toc-row-130">
-        <th><a href="#slide130">map</a></th>
+        <th><a href="#slide130">Guy Steele</a></th>
         <td><a href="#slide130">130</a></td>
       </tr>
       
       
       <tr id="toc-row-131">
-        <th><a href="#slide131">foreach</a></th>
+        <th><a href="#slide131">Functional Combinators</a></th>
         <td><a href="#slide131">131</a></td>
       </tr>
       
       
       <tr id="toc-row-132">
-        <th><a href="#slide132">filter</a></th>
+        <th><a href="#slide132">map</a></th>
         <td><a href="#slide132">132</a></td>
       </tr>
       
       
       <tr id="toc-row-133">
-        <th><a href="#slide133">zip</a></th>
+        <th><a href="#slide133">foreach</a></th>
         <td><a href="#slide133">133</a></td>
       </tr>
       
       
       <tr id="toc-row-134">
-        <th><a href="#slide134">partition</a></th>
+        <th><a href="#slide134">filter</a></th>
         <td><a href="#slide134">134</a></td>
       </tr>
       
       
       <tr id="toc-row-135">
-        <th><a href="#slide135">find</a></th>
+        <th><a href="#slide135">partition</a></th>
         <td><a href="#slide135">135</a></td>
       </tr>
       
       
       <tr id="toc-row-136">
-        <th><a href="#slide136">drop</a></th>
+        <th><a href="#slide136">exists</a></th>
         <td><a href="#slide136">136</a></td>
       </tr>
       
@@ -9556,13 +10118,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-142">
-        <th><a href="#slide142">Option</a></th>
+        <th><a href="#slide142">groupBy</a></th>
         <td><a href="#slide142">142</a></td>
       </tr>
       
       
       <tr id="toc-row-143">
-        <th><a href="#slide143">Option</a></th>
+        <th><a href="#slide143">-</a></th>
         <td><a href="#slide143">143</a></td>
       </tr>
       
@@ -9574,37 +10136,37 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-145">
-        <th><a href="#slide145">-</a></th>
+        <th><a href="#slide145">Option</a></th>
         <td><a href="#slide145">145</a></td>
       </tr>
       
       
       <tr id="toc-row-146">
-        <th><a href="#slide146">Failure is an <code>Option</code></a></th>
+        <th><a href="#slide146">-</a></th>
         <td><a href="#slide146">146</a></td>
       </tr>
       
       
       <tr id="toc-row-147">
-        <th><a href="#slide147">Application: Computing a mean</a></th>
+        <th><a href="#slide147">-</a></th>
         <td><a href="#slide147">147</a></td>
       </tr>
       
       
       <tr id="toc-row-148">
-        <th><a href="#slide148">-</a></th>
+        <th><a href="#slide148">Failure is an <code>Option</code></a></th>
         <td><a href="#slide148">148</a></td>
       </tr>
       
       
       <tr id="toc-row-149">
-        <th><a href="#slide149">-</a></th>
+        <th><a href="#slide149">Application: Computing a mean</a></th>
         <td><a href="#slide149">149</a></td>
       </tr>
       
       
       <tr id="toc-row-150">
-        <th><a href="#slide150">Maps on Options</a></th>
+        <th><a href="#slide150">-</a></th>
         <td><a href="#slide150">150</a></td>
       </tr>
       
@@ -9616,25 +10178,25 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-152">
-        <th><a href="#slide152"><code>flatMap</code> for <code>Option</code></a></th>
+        <th><a href="#slide152">Maps on Options</a></th>
         <td><a href="#slide152">152</a></td>
       </tr>
       
       
       <tr id="toc-row-153">
-        <th><a href="#slide153">Challenge Question</a></th>
+        <th><a href="#slide153">-</a></th>
         <td><a href="#slide153">153</a></td>
       </tr>
       
       
       <tr id="toc-row-154">
-        <th><a href="#slide154">-</a></th>
+        <th><a href="#slide154"><code>flatMap</code> for <code>Option</code></a></th>
         <td><a href="#slide154">154</a></td>
       </tr>
       
       
       <tr id="toc-row-155">
-        <th><a href="#slide155">Reduction of for loops</a></th>
+        <th><a href="#slide155">Challenge Question</a></th>
         <td><a href="#slide155">155</a></td>
       </tr>
       
@@ -9646,13 +10208,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-157">
-        <th><a href="#slide157">-</a></th>
+        <th><a href="#slide157">Reduction of for loops</a></th>
         <td><a href="#slide157">157</a></td>
       </tr>
       
       
       <tr id="toc-row-158">
-        <th><a href="#slide158">'Looping' over Options</a></th>
+        <th><a href="#slide158">-</a></th>
         <td><a href="#slide158">158</a></td>
       </tr>
       
@@ -9664,7 +10226,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-160">
-        <th><a href="#slide160">Challenge Question</a></th>
+        <th><a href="#slide160">'Looping' over Options</a></th>
         <td><a href="#slide160">160</a></td>
       </tr>
       
@@ -9676,7 +10238,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-162">
-        <th><a href="#slide162">Lifting Functions</a></th>
+        <th><a href="#slide162">Challenge Question</a></th>
         <td><a href="#slide162">162</a></td>
       </tr>
       
@@ -9688,7 +10250,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-164">
-        <th><a href="#slide164">Challenge Question</a></th>
+        <th><a href="#slide164">Lifting Functions</a></th>
         <td><a href="#slide164">164</a></td>
       </tr>
       
@@ -9700,7 +10262,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-166">
-        <th><a href="#slide166">this pattern may look familiar</a></th>
+        <th><a href="#slide166">Challenge Question</a></th>
         <td><a href="#slide166">166</a></td>
       </tr>
       
@@ -9712,13 +10274,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-168">
-        <th><a href="#slide168">-</a></th>
+        <th><a href="#slide168">this pattern may look familiar</a></th>
         <td><a href="#slide168">168</a></td>
       </tr>
       
       
       <tr id="toc-row-169">
-        <th><a href="#slide169"><code>sequence</code> and <code>traverse</code></a></th>
+        <th><a href="#slide169">-</a></th>
         <td><a href="#slide169">169</a></td>
       </tr>
       
@@ -9730,7 +10292,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-171">
-        <th><a href="#slide171">-</a></th>
+        <th><a href="#slide171"><code>sequence</code> and <code>traverse</code></a></th>
         <td><a href="#slide171">171</a></td>
       </tr>
       
@@ -9742,7 +10304,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-173">
-        <th><a href="#slide173">Challenge Question</a></th>
+        <th><a href="#slide173">-</a></th>
         <td><a href="#slide173">173</a></td>
       </tr>
       
@@ -9754,7 +10316,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-175">
-        <th><a href="#slide175">-</a></th>
+        <th><a href="#slide175">Challenge Question</a></th>
         <td><a href="#slide175">175</a></td>
       </tr>
       
@@ -9772,31 +10334,31 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-178">
-        <th><a href="#slide178">Lecture 5: Products and Coproducts</a></th>
+        <th><a href="#slide178">-</a></th>
         <td><a href="#slide178">178</a></td>
       </tr>
       
       
       <tr id="toc-row-179">
-        <th><a href="#slide179">Either</a></th>
+        <th><a href="#slide179">-</a></th>
         <td><a href="#slide179">179</a></td>
       </tr>
       
       
       <tr id="toc-row-180">
-        <th><a href="#slide180">Tuple</a></th>
+        <th><a href="#slide180">-</a></th>
         <td><a href="#slide180">180</a></td>
       </tr>
       
       
       <tr id="toc-row-181">
-        <th><a href="#slide181">-</a></th>
+        <th><a href="#slide181">Lecture 4a: Products and Coproducts</a></th>
         <td><a href="#slide181">181</a></td>
       </tr>
       
       
       <tr id="toc-row-182">
-        <th><a href="#slide182">-</a></th>
+        <th><a href="#slide182">Either</a></th>
         <td><a href="#slide182">182</a></td>
       </tr>
       
@@ -9808,7 +10370,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-184">
-        <th><a href="#slide184">Tuples and Maps</a></th>
+        <th><a href="#slide184">Tuple</a></th>
         <td><a href="#slide184">184</a></td>
       </tr>
       
@@ -9832,43 +10394,43 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-188">
-        <th><a href="#slide188">Lecture 6: Purely Functional State</a></th>
+        <th><a href="#slide188">Tuples and Maps</a></th>
         <td><a href="#slide188">188</a></td>
       </tr>
       
       
       <tr id="toc-row-189">
-        <th><a href="#slide189">Lecture 7: ?</a></th>
+        <th><a href="#slide189">-</a></th>
         <td><a href="#slide189">189</a></td>
       </tr>
       
       
       <tr id="toc-row-190">
-        <th><a href="#slide190">Lecture 8: Variance and Bounds</a></th>
+        <th><a href="#slide190">-</a></th>
         <td><a href="#slide190">190</a></td>
       </tr>
       
       
       <tr id="toc-row-191">
-        <th><a href="#slide191">Variance</a></th>
+        <th><a href="#slide191">-</a></th>
         <td><a href="#slide191">191</a></td>
       </tr>
       
       
       <tr id="toc-row-192">
-        <th><a href="#slide192">Parametric Polymorphism</a></th>
+        <th><a href="#slide192">Lecture 5: Strictness and Laziness</a></th>
         <td><a href="#slide192">192</a></td>
       </tr>
       
       
       <tr id="toc-row-193">
-        <th><a href="#slide193">Subtype Polymorphism</a></th>
+        <th><a href="#slide193">Views</a></th>
         <td><a href="#slide193">193</a></td>
       </tr>
       
       
       <tr id="toc-row-194">
-        <th><a href="#slide194">-</a></th>
+        <th><a href="#slide194">Streams</a></th>
         <td><a href="#slide194">194</a></td>
       </tr>
       
@@ -9880,7 +10442,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-196">
-        <th><a href="#slide196">Ad-hoc Polymorphism <a href="https://en.wikipedia.org/wiki/Ad_hoc_polymorphism">link</a></a></th>
+        <th><a href="#slide196">-</a></th>
         <td><a href="#slide196">196</a></td>
       </tr>
       
@@ -9892,13 +10454,13 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-198">
-        <th><a href="#slide198">-</a></th>
+        <th><a href="#slide198">Stream cons operator</a></th>
         <td><a href="#slide198">198</a></td>
       </tr>
       
       
       <tr id="toc-row-199">
-        <th><a href="#slide199">View and Context Bounds</a></th>
+        <th><a href="#slide199">-</a></th>
         <td><a href="#slide199">199</a></td>
       </tr>
       
@@ -9922,43 +10484,43 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-203">
-        <th><a href="#slide203">Application: <code>sum</code></a></th>
+        <th><a href="#slide203">-</a></th>
         <td><a href="#slide203">203</a></td>
       </tr>
       
       
       <tr id="toc-row-204">
-        <th><a href="#slide204">Functors</a></th>
+        <th><a href="#slide204">Lecture 6: Purely Functional State</a></th>
         <td><a href="#slide204">204</a></td>
       </tr>
       
       
       <tr id="toc-row-205">
-        <th><a href="#slide205">Lecture 9: Monoids</a></th>
+        <th><a href="#slide205">Greenspun's Tenth Rule</a></th>
         <td><a href="#slide205">205</a></td>
       </tr>
       
       
       <tr id="toc-row-206">
-        <th><a href="#slide206">-</a></th>
+        <th><a href="#slide206">Lecture n: Implicits</a></th>
         <td><a href="#slide206">206</a></td>
       </tr>
       
       
       <tr id="toc-row-207">
-        <th><a href="#slide207">Lecture 7: Monads</a></th>
+        <th><a href="#slide207">Variance</a></th>
         <td><a href="#slide207">207</a></td>
       </tr>
       
       
       <tr id="toc-row-208">
-        <th><a href="#slide208">-</a></th>
+        <th><a href="#slide208">Parametric Polymorphism</a></th>
         <td><a href="#slide208">208</a></td>
       </tr>
       
       
       <tr id="toc-row-209">
-        <th><a href="#slide209">Reduction of Lists, Part 2</a></th>
+        <th><a href="#slide209">Subtype Polymorphism</a></th>
         <td><a href="#slide209">209</a></td>
       </tr>
       
@@ -9976,7 +10538,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-212">
-        <th><a href="#slide212">-</a></th>
+        <th><a href="#slide212">Ad-hoc Polymorphism <a href="https://en.wikipedia.org/wiki/Ad_hoc_polymorphism">link</a></a></th>
         <td><a href="#slide212">212</a></td>
       </tr>
       
@@ -9994,37 +10556,37 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-215">
-        <th><a href="#slide215">Lecture 8: Purely Functional Parallelism</a></th>
+        <th><a href="#slide215">View and Context Bounds</a></th>
         <td><a href="#slide215">215</a></td>
       </tr>
       
       
       <tr id="toc-row-216">
-        <th><a href="#slide216">Lecture 9: Strictness and Laziness</a></th>
+        <th><a href="#slide216">-</a></th>
         <td><a href="#slide216">216</a></td>
       </tr>
       
       
       <tr id="toc-row-217">
-        <th><a href="#slide217">Views</a></th>
+        <th><a href="#slide217">-</a></th>
         <td><a href="#slide217">217</a></td>
       </tr>
       
       
       <tr id="toc-row-218">
-        <th><a href="#slide218">Streams</a></th>
+        <th><a href="#slide218">-</a></th>
         <td><a href="#slide218">218</a></td>
       </tr>
       
       
       <tr id="toc-row-219">
-        <th><a href="#slide219">-</a></th>
+        <th><a href="#slide219">Application: <code>sum</code></a></th>
         <td><a href="#slide219">219</a></td>
       </tr>
       
       
       <tr id="toc-row-220">
-        <th><a href="#slide220">-</a></th>
+        <th><a href="#slide220">Application: Thrush Combinator</a></th>
         <td><a href="#slide220">220</a></td>
       </tr>
       
@@ -10036,7 +10598,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-222">
-        <th><a href="#slide222">Stream cons operator</a></th>
+        <th><a href="#slide222">-</a></th>
         <td><a href="#slide222">222</a></td>
       </tr>
       
@@ -10060,7 +10622,7 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-226">
-        <th><a href="#slide226">-</a></th>
+        <th><a href="#slide226">Application: Kestrel Combinator</a></th>
         <td><a href="#slide226">226</a></td>
       </tr>
       
@@ -10072,8 +10634,98 @@ res8: List[Int] = List(0, 1, 1, 2, 3, 5, 8, 13)
       
       
       <tr id="toc-row-228">
-        <th><a href="#slide228">Thanks!</a></th>
+        <th><a href="#slide228">-</a></th>
         <td><a href="#slide228">228</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-229">
+        <th><a href="#slide229">-</a></th>
+        <td><a href="#slide229">229</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-230">
+        <th><a href="#slide230">-</a></th>
+        <td><a href="#slide230">230</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-231">
+        <th><a href="#slide231">Functors</a></th>
+        <td><a href="#slide231">231</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-232">
+        <th><a href="#slide232">Lecture 9: Monoids</a></th>
+        <td><a href="#slide232">232</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-233">
+        <th><a href="#slide233">-</a></th>
+        <td><a href="#slide233">233</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-234">
+        <th><a href="#slide234">Lecture 7: Monads</a></th>
+        <td><a href="#slide234">234</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-235">
+        <th><a href="#slide235">-</a></th>
+        <td><a href="#slide235">235</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-236">
+        <th><a href="#slide236">Reduction of Lists, Part 2</a></th>
+        <td><a href="#slide236">236</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-237">
+        <th><a href="#slide237">-</a></th>
+        <td><a href="#slide237">237</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-238">
+        <th><a href="#slide238">-</a></th>
+        <td><a href="#slide238">238</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-239">
+        <th><a href="#slide239">-</a></th>
+        <td><a href="#slide239">239</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-240">
+        <th><a href="#slide240">-</a></th>
+        <td><a href="#slide240">240</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-241">
+        <th><a href="#slide241">-</a></th>
+        <td><a href="#slide241">241</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-242">
+        <th><a href="#slide242">Lecture 8: Purely Functional Parallelism</a></th>
+        <td><a href="#slide242">242</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-243">
+        <th><a href="#slide243">Thanks!</a></th>
+        <td><a href="#slide243">243</a></td>
       </tr>
       
       

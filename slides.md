@@ -1,9 +1,8 @@
 <div style="border-radius: 10px; background: #EEEEEE; padding: 20px; text-align: center; font-size: 1.5em">
-  <big><b>Introduction to Scala </b></big> </br>
+  <big><b>Scala for Data Scientists</b></big> </br>
   </br>
 
-  <code>chris@datascience.com</code>
-  <code>jason@datascience.com</code>
+  <code>{chris,jason}@datascience.com</code>
   <br/>
   <br/>
 
@@ -15,6 +14,7 @@
 
 * Chiusano and Bjarnason's [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala)
 * Twitter's [Scala School](https://twitter.github.io/scala_school/)
+* Li Haoyi's [Strategic Scala Style Guide](http://www.lihaoyi.com/post/StrategicScalaStylePrincipleofLeastPower.html)
 * This course's [Github Project](https://github.com/cem3394/scala-for-data-scientists/tree/gh-pages)
 
 ---
@@ -52,42 +52,6 @@ Ideally: Develop theories of collections, shapes, strings, …
  * *Add* type-safety with minimal "extra work"
 
 .notes: Decouple semantics from state transitions using powerful primitives.
-
----
-
-#A Bit of History
-
-![](img/history.png)
-
-[https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704](https://medium.com/@markobonaci/the-history-of-hadoop-68984a11704)
-
----
-
-#OpenMP (1997)
-![](img/OpenMP.jpg)
-
-.notes: started w/ Backus' Fortran 1.0 in 1997. parallel processing only done on expensive supercomputers. complex and not robust to node failures.
-
----
-
-#MapReduce (2004)
-![](img/mapreduce.png)
-
-.notes: combined FP primitives with world-class cluster computing know-how. the simple MR framework (read Backus) meant that all of a sudden it became relatively simple and reliable to compute with large arrays of cheap nodes, any of which might fail. these guys are legends. they are also behind tensorFlow.
-
----
-
-#Hadoop (2006)
-![](img/hadoop-ecosystem.png)
-
-.notes: open source MapReduce. became a top level apache project in 2006. batched processing. static pageRank anecdote. by 2006 google had already moved on to streaming.
-
----
-
-#Kafka and Spark (2012)
-![](img/kafka-spark.png)
-
-.notes: Both Scala projects. Came out of LinkedIn and Berekley's AmpLabs respectively. Framework and language have converged. Scala Collections API, Spark API, Scalding API, Kafka API are almost identical.
 
 ---
 
@@ -481,7 +445,7 @@ Avoid conceptualizing data structures word-by-word.
 
 ---
 
-#Higher-Order Functions
+#Functional Combinators
 
 The `filter` method of an object of type `List[T]` thus has the signature:
 
@@ -533,6 +497,57 @@ The `filter` method of an object of type `List[T]` thus has the signature:
 
 More on this next lecture.
 [http://www.scala-lang.org/api/rc2/scala/Function2.html](http://www.scala-lang.org/api/rc2/scala/Function2.html)
+
+---
+
+#`val` vs `def`
+
+`def` creates a new instance of `Function1` when called.
+
+    !scala
+    def even1: Int => Boolean = _ % 2 == 0
+    even1 eq even1
+    //Boolean = false
+
+    val even2: Int => Boolean = _ % 2 == 0
+    even2 eq even2
+    //Boolean = true
+
+---
+
+    !scala
+    import scala.util.Random
+    val test1: () => Int = {
+      val r = util.Random.nextInt
+      () => r
+    }
+
+---
+
+    scala> val test1: () => Int = {
+         |   val r = util.Random.nextInt
+         |   () => r
+         | }
+    test1: () => Int = <function0>
+    scala> test1()
+    res3: Int = -222779613
+    scala> test1()
+    res4: Int = -222779613
+
+---
+
+    !scala
+    def test2: () => Int = {
+      val r = util.Random.nextInt
+      () => r
+    }
+
+---
+
+    scala> test1()
+    res3: Int = -240885810
+    scala> test1()
+    res4: Int = 1002157461
 
 ---
 
@@ -615,6 +630,30 @@ More on this next lecture.
     res4: List[Int] = List(4, 5, 6, 7, 8)
 
 .notes:  More generally, when a function definition contains multiple argument groups, type information flows from left to right across these argument groups. Here, the first argument group fixes the type parameter A of dropWhile to Int, so the annotation on x => x < 4 is not required. This is an  unfortunate restriction of the Scala compiler; other functional languages like Haskell and OCaml provide complete inference, meaning type annotations are almost never required.
+
+---
+
+#Type inference
+
+Scala's type system is complicated by the presence of path-dependent types and subtyping.
+
+As a result Scala has only very limited, local type inference.
+
+---
+
+Whereas other programming languages like Haskell or ML may have some species of Hindley-Milner type inference, Scala has what's called "flow-based" inference. That is, type information "flows" from arguments to results. Given the types of the arguments, Scala is able to infer the result type of a function, unless that function is recursive.
+
+---
+
+We gain type inference benefits from grouping arguments into two argument lists, as in `dropWhile2(numbers) (x => x < 4)`.
+
+Type information flows from the first argument list to the second when inferring type arguments to a function call.
+
+Note that no inference benefit can be gained from adding more than two argument lists to a function, as Scala's typer does not consult any argument lists beyond the first.
+
+---
+
+See the [Scala Language Specification](http://www.scala-lang.org/docu/files/ScalaReference.pdf) for more information on Scala's type inference. Specifically sections 4.6.4 (Method Return Type Inference), 6.26.4 (Local Type Inference), and 8.3 (Type Parameter Inference In Patterns).
 
 ---
 
@@ -818,9 +857,18 @@ Use a helper function `getK[T](elt: T, cache: List[T]): List[T]` and pass it int
 
 ---
 
+
 #Lecture 3: Traits and Classes
 
+>"Object-oriented programming is an exceptionally bad idea which could only have originated in California."
+– Edsger Dijkstra
+$$
+$$
+>"The phrase 'object-oriented' means a lot of things. Half are obvious, and the other half are mistakes."
+– Paul Graham
+
 ---
+
 
 #Objects
 
@@ -952,7 +1000,7 @@ The `Function2` trait provides additional concrete members:
          |   def apply(m: Int, n: Int): Int = m + n
          |   }
     foo2: (Int, Int) => Int = <function2>
-    scala> foo.curried    
+    scala> (foo _ ).curried  
     res44: Int => (Int => Int) = <function1>
     scala> foo.tupled
     res49: ((Int, Int)) => Int = <function1>
@@ -982,6 +1030,132 @@ What is the implementation of `curried`?
         (x1: T1) => (x2: T2) => apply(x1, x2)
       }
     }
+
+---
+
+#Variance
+
+---
+
+
+---
+
+---
+
+Here is a case where a contravariant type parameter is useful.
+
+    !scala
+    abstract class OutputChannel[-A] {
+      def write(x: A): Unit
+    }
+
+With that annotation, we have that OutputChannel[AnyRef] conforms to
+OutputChannel[String]. That is, a channel on which one can write any object can
+substitute for a channel on which one can write only strings.
+
+---
+
+
+
+---
+
+
+#Parametric Polymorphism
+<!-- http://eed3si9n.com/learning-scalaz/polymorphism.html -->
+
+    scala> def head[A](xs: List[A]): A = xs(0)
+    head: [A](xs: List[A])A
+    scala> head(1 :: 2 :: Nil)
+    res0: Int = 1
+    scala> case class Car(make: String)
+    defined class Car
+    scala> head(Car("Civic") :: Car("CR-V") :: Nil)
+    res1: Car = Car(Civic)
+
+---
+
+#Subtype Polymorphism
+
+    !scala
+    trait Plus[A] {
+      def plus(a2: A): A
+    }
+
+---
+
+    scala> def plus[A <: Plus[A]](a1: A, a2: A): A = a1.plus(a2)
+    plus: [A <: Plus[A]](a1: A, a2: A)A
+
+---
+
+We can now provide different definitions of plus for A.
+
+But, this is not flexible since trait Plus needs to be mixed in at the time of defining the datatype. So it can’t work for Int and String.
+
+---
+
+#Ad-hoc Polymorphism [link](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)
+
+The term ad hoc in this context is not intended to be pejorative; it refers simply to the fact that this type of polymorphism is not a fundamental feature of the type system.
+
+This is in contrast to parametric polymorphism, in which polymorphic functions are written without mention of any specific type, and can thus apply a single abstract implementation to any number of types in a transparent way.
+
+---
+
+The third approach in Scala is to provide an implicit conversion or implicit parameters for the trait.
+
+    scala> trait Plus[A] {
+             def plus(a1: A, a2: A): A
+           }
+    defined trait Plus
+    scala> def plus[A: Plus](a1: A, a2: A): A = implicitly[Plus[A]].plus(a1, a2)
+    plus: [A](a1: A, a2: A)(implicit evidence$1: Plus[A])A
+
+---
+
+This is truely ad-hoc in the sense that
+
+* we can provide separate function definitions for different types of A
+* we can provide function definitions to types (like Int) without access to its source code
+* the function definitions can be enabled or disabled in different scopes
+
+---
+
+#View and Context Bounds
+
+<!--- http://stackoverflow.com/questions/4465948/what-are-scala-context-and-view-bounds -->
+
+---
+
+    !scala
+    def stackSort[A <% Ordered[A]](list: List[A]): List[A] =
+      list.foldLeft(List[A]()) { (r,c) =>
+        val (front, back) = r.partition(_ > c)
+        front ::: c :: back
+      }
+
+---
+
+Context bounds are mainly used in what has become known as the `Typeclass` pattern, as a reference to Haskell's type classes.
+$$
+$$
+The `Typeclass` pattern implements an alternative to inheritance by making functionality available through an implicit adapter pattern.
+
+---
+
+    !scala
+    def stackSort[A : Ordering](list: List[A]): List[A] =
+      list.foldLeft(List[A]()) { (r,c) =>
+        val (front, back) = r.partition(implicitly[Ordering[A]].lt(c, _))
+        front ::: c :: back
+      }
+
+---
+
+
+#Application: `sum`
+
+<!--- http://eed3si9n.com/learning-scalaz/sum+function.html -->
 
 ---
 
@@ -1040,6 +1214,7 @@ Case classes are designed to be used with pattern matching.
     class Cons
 
 ---
+
 #`apply` can be applied recursively
 
     !scala
@@ -1056,6 +1231,7 @@ Case classes are designed to be used with pattern matching.
     }
 
 ---
+
 'foldRight' is implemented inside of the companion object to `List`
 
     scala> val y = List(1,2,3,4)
@@ -1078,20 +1254,24 @@ Case classes are designed to be used with pattern matching.
 ---
 
     !scala
-    val intAddition: Monoid[Int] = new Monoid[Int] {
-      def op(x: Int, y: Int) = x + y
-      val zero = 0
-    }
-    val stringMonoid = new Monoid[String] {
-      def op(a1: String, a2: String) = a1 + a2
-      val zero = ""
+    object Monoid {
+      val intAddition: Monoid[Int] = new Monoid[Int] {
+        def op(x: Int, y: Int) = x + y
+        val zero = 0
+      }
+      val stringMonoid = new Monoid[String] {
+        def op(a1: String, a2: String) = a1 + a2
+        val zero = ""
+      }
     }
 
 ---
 
 #Challenge Question
 
-Write an endomorphism-based `endoMonoid` object that extends `Monoid` with the appropriate definition of `op` and `zero`.
+Write an endomorphism-based `endoMonoid` object to place in the `Monoid` companion object.
+
+It should extend the `Monoid` base trait with the appropriate definition of `op` and `zero`.
 
 An endomorphism in mathematics is a function with the same domain and range. It is modeled in Scala by `Function1[A, A]`.
 
@@ -1109,7 +1289,72 @@ Note that `endoMonoid` itself is parameterized by `A`.
 
 ---
 
-#Immutable Collections Library
+
+
+#Application: Thrush Combinator
+
+---
+
+In his classic book [To Mock a Mockingbird](http://www.amazon.com/Mock-Mockingbird-Other-Logic-Puzzles/dp/0192801422), Raymond Smullyan teaches combinatory logic using the analogy of songbirds in a forest.
+
+More than the implementation, the bird names have gone a long way in establishing a common vocabulary of programming idioms and techniques.
+
+---
+
+The Thrush combinator is defined by the following condition: `Txy = yx`.
+
+.notes: ie Thrush reverses the order of evaluation.
+
+---
+
+The following code is correct but difficult to read:
+
+    !scala
+    ((x: Int) => (x * x))((1 to 100).filter(_ % 2 != 0).foldLeft(0)(_+_))
+
+---
+
+    !scala
+    case class Thrush[A](x: A) {
+      def into[B](g: A => B): B = {
+        g(x)
+      }
+    }
+
+---
+
+    !scala
+    Thrush((1 to 100)
+      .filter(_ % 2 != 0)
+      .foldLeft(0)(_ + _))
+      .into((x: Int) => x * x)
+
+---
+
+    !scala
+    implicit def int2Thrush(x: Int) = Thrush(x)
+    (1 to 100)
+      .filter(_ % 2 != 0)
+      .foldLeft(0)(_ + _)
+      .into((x: Int) => x * x)
+
+---
+
+This comes in handy for designing expressive domain APIs and data pipelines:
+
+    !scala
+    accounts.filter(_ belongsTo "John S.")
+            .map(_.calculateInterest)
+            .filter(_ > threshold)
+            .foldLeft(0)(_ + _)
+            .into {x: Int =>
+              updateBooks journalize(Ledger.INTEREST, x)
+            }
+
+
+---
+
+#Application: Immutable Collections Library
 
 * easy to use: few steps to do the job.
 * concise: one word replaces a whole loop.
@@ -1228,7 +1473,7 @@ Another commonly used implementation of `IndexedSeq` is `Range`.
 
 ---
 
-    scala> val r0 = Range(0,5,1)
+    scala> val r0 = Range(0, 5, 1)
     r0: Range = Range(0, 1, 2, 3, 4)
     scala> val r1 = 0 until 5
     r1: Range = Range(0, 1, 2, 3, 4)
@@ -1237,45 +1482,21 @@ Another commonly used implementation of `IndexedSeq` is `Range`.
 
 ---
 
-#Set
-
-Sets are mathematical sets (unordered collections of unique items)
-
-    scala> Set(1, 1, 2)
-    res0: Set[Int] = Set(1, 2)
-    scala> SortedSet("hello", "world")
-    res10: SortedSet[String] = TreeSet(hello, world)
-
----
-
-#Map
-
-Maps are unordered key value containers.
-
-    scala> Map('a' -> 1, 'b' -> 2)
-    res4: Map[Char,Int] = Map((a,1), (b,2))
-
-.notes: This looks like special syntax but remember back to our discussion of Tuple that -> can be use to create Tuples. Map() also uses that variable argument syntax we learned back in Lesson #1: Map(1 -> "one", 2 -> "two") which expands into Map((1, "one"), (2, "two")) with the first element being the key and the second being the value of the Map. Maps can themselves contain Maps or even functions as values.
-
----
-
-Maps can themselves contain Maps or even functions as values.
-
-    !scala
-    Map(1 -> Map("foo" -> "bar"))
-    Map("timesTwo" -> { timesTwo(_) })
+    scala> val r = 0 until 5
+    r: Range = Range(0, 1, 2, 3, 4)
+    scala> r.zip(r.tail)
+    res68: IndexedSeq[(Int, Int)] = Vector((0,1), (1,2), (2,3), (3,4))
 
 ---
 
 ![](img/collections3-1.png)
-
----
-
+$$
+$$
 Please read the [collections design document](http://www.scala-lang.org/docu/files/collections-api/collections.html); it provides great insight and motivation for the entire library.
 
 ---
 
-#Lecture 4: Options & Combinators
+#Lecture 4: Combinators
 
 
 ---
@@ -1327,18 +1548,9 @@ removes any elements where the function you pass in evaluates to false.
 
 ---
 
-#zip
-
-`zip` aggregates the contents of two `Iterable`s into a single `Iterable` of tuples.
-
-    scala> List(1, 2, 3).zip(List("a", "b", "c"))
-    res0: List[(Int, String)] = List((1,a), (2,b), (3,c))
-
----
-
 #partition
 
-`partition` splits a list based on where it falls with respect to a predicate function.
+`partition` splits a list based on where it falls with respect to the predicate function.
 
     scala> val numbers = List(1, 2, 3, 4, 5, 6)
     scala> numbers.partition(_ % 2 == 0)
@@ -1346,23 +1558,12 @@ removes any elements where the function you pass in evaluates to false.
 
 ---
 
-#find
+#exists
 
-`find` returns the first element of a collection that matches a predicate function.
+`exists` determines whether there exists an element satisfying the predicate function.
 
-Note that it returns an `Option`. More on `Option`s in a moment.
-
-    scala> numbers.find((i: Int) => i > 5)
-    res0: Option[Int] = Some(6)
-
----
-
-#drop
-
-`drop` drops the first `i` elements
-
-    scala> numbers.drop(3)
-    res0: List[Int] = List(4, 5, 6)
+    scala> List(1,2,3) exists (_%2 ==0)
+    res69: Boolean = true
 
 ---
 
@@ -1380,7 +1581,9 @@ Note that it returns an `Option`. More on `Option`s in a moment.
 0 is the starting value (Remember that numbers is a `List[Int]`), and `m` acts as an accumulator.
 
     scala> numbers.foldLeft(0) {
-         |   (m: Int, n: Int) => println("m: " + m + " n: " + n); m + n }
+         |   (m: Int, n: Int) =>
+         |   println("m: " + m + " n: " + n); m + n
+         | }
     m: 0 n: 1
     m: 1 n: 2
     m: 3 n: 3
@@ -1396,7 +1599,9 @@ Note that it returns an `Option`. More on `Option`s in a moment.
 runs in the opposite direction as `foldLeft`. Not tail-recursive.
 
     scala> numbers.foldRight(0) {
-         |   (m: Int, n: Int) => println("m: " + m + " n: " + n); m + n }  
+         |   (m: Int, n: Int) =>
+         |   println("m: " + m + " n: " + n); m + n
+         | }  
     m: 6 n: 0
     m: 5 n: 6
     m: 4 n: 11
@@ -1406,6 +1611,28 @@ runs in the opposite direction as `foldLeft`. Not tail-recursive.
     res0: Int = 21
 
 ---
+
+#groupBy
+
+`groupBy` is another frequently used combinator groups the elements of a collection according to the range of a grouping function.
+
+  !scala
+  def groupBy [K] (f: (A) ⇒ K): Map[K, Traversable[A]]
+
+---
+
+  !scala
+  scala> val cats = List("Tiger", "Lion", "Puma", "Leopard",
+       |                   "Jaguar", "Cheetah", "Bobcat")
+  cats: List[String] = List(Tiger, Lion, Puma, Leopard, Jaguar, Cheetah, Bobcat)
+  scala> cats.groupBy(_.length)
+  res0: Map[Int,List[String]] = Map(5 -> List(Tiger),
+                                    4 -> List(Lion, Puma),
+                                    7 -> List(Leopard, Cheetah),
+                                    6 -> List(Jaguar, Bobcat))
+
+---
+
 
 #flatten
 
@@ -1427,7 +1654,75 @@ runs in the opposite direction as `foldLeft`. Not tail-recursive.
 
 ---
 
-#Option
+`flatMap` is frequently available in nontraditional collections such as `Future` and `Option`.
+
+For a `Container[A]`, its signature is:
+
+    !scala
+    flatMap[B](f: A => Container[B]): Container[B]
+
+
+---
+
+For example, to get all permutations of two character strings that aren't the same character repeated twice:
+
+    !scala
+    val chars = 'a' to 'z'
+    val perms = chars flatMap { a =>
+      chars flatMap { b =>
+        if (a != b) Seq("%c%c".format(a, b))
+        else Seq()
+      }
+    }
+
+---
+
+This is equivalent to the more concise for-comprehension (which is — roughly — syntactical sugar for the above):
+
+    !scala
+    val perms = for {
+      a <- chars
+      b <- chars
+      if a != b
+    } yield "%c%c".format(a, b)
+
+---
+
+# Scala Style
+
+Functional programming encourages pipelining transformations of an immutable collection to shape it to its desired result.
+
+This often leads to very succinct solutions, but can also be confusing to the reader.
+
+---
+
+    !scala
+    val votes = Seq(("a", 1), ("b", 4), ("a", 10), ("b", 1), ("c", 10))
+    val orderedVotes = votes
+      .groupBy(_._1)
+      .map { case (which, counts) =>
+        (which, counts.foldLeft(0)(_ + _._2))
+      }.toSeq
+      .sortBy(_._2)
+      .reverse
+
+.notes: this is both succinct and correct, but nearly every reader will have a difficult time recovering the original intent of the author. A strategy that often serves to clarify is to name intermediate results and parameters:
+
+---
+
+    !scala
+    val votesByLang = votes groupBy { case (lang, _) => lang }
+    val sumByLang = votesByLang map { case (lang, counts) =>
+      val countsOnly = counts map { case (_, count) => count }
+      (lang, countsOnly.sum)
+    }
+    val orderedVotes = sumByLang.toSeq
+      .sortBy { case (_, count) => count }
+      .reverse
+
+.notes: the code is nearly as succinct, but much more clearly expresses both the transformations take place (by naming intermediate values), and the structure of the data being operated on (by naming parameters). If you worry about namespace pollution with this style, group expressions with {}
+
+---
 
 ---
 
@@ -1467,6 +1762,7 @@ runs in the opposite direction as `foldLeft`. Not tail-recursive.
     res1: Option[Int] = None
 
 ---
+
 
 #Application: Computing a mean
 
@@ -1766,8 +2062,17 @@ Implement `traverse` so that it traverses the list only once.
 
 ---
 
+Generally speaking, you know there is only one thing that can go wrong, use `Option` or its extension `Either`.
+$$
+$$
+If you know there is multiple things that can go wrong, roll your own Trait.
+$$
+$$
+Only use exceptions if you don't know what can go wrong.
 
-#Lecture 5: Products and Coproducts
+---
+
+#Lecture 4a: Products and Coproducts
 
 <!---
 http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html
@@ -1781,6 +2086,8 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
 `Either` is a container that holds one of two things. It is a dual to `Tuple2`.
 
 ---
+
+https://github.com/finagle/finch/blob/master/docs/cookbook.md
 
 ---
 
@@ -1865,226 +2172,9 @@ So the functions you write work on a pair of the keys and values in the Map.
 
 ---
 
-
-#Lecture 6: Purely Functional State
-
 ---
 
-#Lecture 7: ?
-
----
-
-#Lecture 8: Variance and Bounds
-
-<!-- http://eed3si9n.com/learning-scalaz/polymorphism.html -->
----
-
-#Variance
-
----
-
-#Parametric Polymorphism
-
-    scala> def head[A](xs: List[A]): A = xs(0)
-    head: [A](xs: List[A])A
-    scala> head(1 :: 2 :: Nil)
-    res0: Int = 1
-    scala> case class Car(make: String)
-    defined class Car
-    scala> head(Car("Civic") :: Car("CR-V") :: Nil)
-    res1: Car = Car(Civic)
-
----
-
-#Subtype Polymorphism
-
-    !scala
-    trait Plus[A] {
-      def plus(a2: A): A
-    }
-
----
-
-    scala> def plus[A <: Plus[A]](a1: A, a2: A): A = a1.plus(a2)
-    plus: [A <: Plus[A]](a1: A, a2: A)A
-
----
-
-We can now provide different definitions of plus for A.
-
-But, this is not flexible since trait Plus needs to be mixed in at the time of defining the datatype. So it can’t work for Int and String.
-
----
-
-#Ad-hoc Polymorphism [link](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)
-
-The term ad hoc in this context is not intended to be pejorative; it refers simply to the fact that this type of polymorphism is not a fundamental feature of the type system.
-
-This is in contrast to parametric polymorphism, in which polymorphic functions are written without mention of any specific type, and can thus apply a single abstract implementation to any number of types in a transparent way.
-
----
-
-The third approach in Scala is to provide an implicit conversion or implicit parameters for the trait.
-
-scala> trait Plus[A] {
-         def plus(a1: A, a2: A): A
-       }
-defined trait Plus
-
-scala> def plus[A: Plus](a1: A, a2: A): A = implicitly[Plus[A]].plus(a1, a2)
-plus: [A](a1: A, a2: A)(implicit evidence$1: Plus[A])A
-
----
-
-This is truely ad-hoc in the sense that
-
-* we can provide separate function definitions for different types of A
-* we can provide function definitions to types (like Int) without access to its source code
-* the function definitions can be enabled or disabled in different scopes
-
----
-
-#View and Context Bounds
-
-<!--- http://stackoverflow.com/questions/4465948/what-are-scala-context-and-view-bounds -->
-
----
-
-    !scala
-    def stackSort[A <% Ordered[A]](list: List[A]): List[A] =
-      list.foldLeft(List[A]()) { (r,c) =>
-        val (front, back) = r.partition(_ > c)
-        front ::: c :: back
-      }
-
----
-
-Context bounds are mainly used in what has become known as the Typeclass pattern, as a reference to Haskell's type classes.
-
-The Typeclass pattern implements an alternative to inheritance by making functionality available through an implicit adapter pattern.
-
----
-
-    !scala
-    def stackSort[A : Ordering](list: List[A]): List[A] =
-      list.foldLeft(List[A]()) { (r,c) =>
-        val (front, back) = r.partition(implicitly[Ordering[A]].lt(c, _))
-        front ::: c :: back
-      }
-
----
-
-
-#Application: `sum`
-
-<!--- http://eed3si9n.com/learning-scalaz/sum+function.html -->
-
----
-
-#Functors
-
----
-
-#Lecture 9: Monoids
-
----
-
-Monoids are the precisely the typeclass `A` to ensure that `foldRight` and `foldLeft` always return the same result.
-
-    !scala
-    def foldRight[A](as: List[A], z: A)(f: (A, A) => A): A
-    def foldLeft[A](as: List[A], z: A)(f: (A, A) => A): A
-
----
-
-#Lecture 7: Monads
-
----
-
-<!---
-http://james-iry.blogspot.ch/2007/09/monads-are-elephants-part-1.html
-
-https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/Monad.scala
-
-
-http://blog.brakmic.com/writing-monads-in-scala-with-spark-notebook/
-http://usethiscode.blogspot.com/2015/10/spark-dataframes-transformations-with.html
-https://github.com/PawelWlodarski/blog/blob/master/src/main/scala/pl/pawelwlodarski/spark/functionalchain/ChainOnstateMonad.scala
-
-http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
--->
-
----
-
-#Reduction of Lists, Part 2
-
-    !scala
-    for {
-      i <- List(0, 1)
-      j <- List(2, 3)
-      k <- List(4, 5)
-    } yield(i * j * k)
-
-    List(0, 1) flatMap {
-      i => List(2, 3) flatMap {
-        j => List(4, 5) map {
-          k => i * j * k
-        }
-      }
-    }
-
----
-
-The key abstraction is the flatMap, which binds the computation through chaining. Each invocation of flatMap returns the same data structure type (but of different value), that serves as the input to the next command in chain.
-
----
-
-In the above snippet, `flatMap` takes as input a closure `A => List[B]` and returns a `List[B]`.
-
-The important point to note is that all flatMaps take the same closure type as input and return the same type as output. This is what "binds" the computation thread - every item of the sequence in the for-comprehension has to honor this same type constraint.
-
----
-
-
-
----
-
-
-The biggest power of monads is the ability to combine diverse monadic operations to design modular and extensible code.
-
-The following snippet gives an example that combines a List monad and Maybe monad within the same for-comprehension block :
-
----
-
-    !scala
-    val list = List("India", "Japan", "France", "Russia")
-    val capitals =
-      Map("India" -> "New Delhi", "Japan" -> "Tokyo", "France" -> "Paris")
-
-    for {
-      i <- list
-      j <- capitals get(i) orElse(Some("None"))
-    } yield(j)
-    //List[String] = List(New Delhi, Tokyo, Paris, None)
-
----
-
-The first operation of the sequence is one on a List monad, while the next one is on a Maybe monad.
-
-    !scala
-    list flatMap {
-      i => capitals.get(i).orElse(Some("None")) map {
-        j => j
-      }
-    }
-
----
-
-#Lecture 8: Purely Functional Parallelism
-
----
-
-#Lecture 9: Strictness and Laziness
+#Lecture 5: Strictness and Laziness
 
 ---
 
@@ -2173,6 +2263,134 @@ The first operation of the sequence is one on a List monad, while the next one i
     }
 
 ---
+
+#Lecture 6: Purely Functional State
+
+---
+
+
+#Greenspun's Tenth Rule
+
+>Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp.
+- Phillip Greenspun
+
+---
+
+
+#Functors
+
+---
+
+#Lecture 9: Monoids
+
+---
+
+Monoids are the precisely the typeclass `A` to ensure that `foldRight` and `foldLeft` always return the same result.
+
+    !scala
+    def foldRight[A](as: List[A], z: A)(f: (A, A) => A): A
+    def foldLeft[A](as: List[A], z: A)(f: (A, A) => A): A
+
+---
+
+#Lecture 7: Monads
+
+![](img/gang-of-four-monads.png)
+
+>Almost all designs fall into the ‘compiler’ or ‘interpreter’ pattern, using a model of the data and functions on that data.
+- [Don Stewart](http://stackoverflow.com/questions/27852709/enterprise-patterns-with-functional-programming/27860072#27860072)
+
+---
+
+
+---
+
+<!---
+
+https://www.youtube.com/watch?v=hmX2s3pe_qk
+
+Monads vs OO design patterns
+https://www.quora.com/Why-do-some-functional-programmers-criticize-design-patterns-in-OOP-languages-as-a-sign-of-language-deficiency-while-Monad-is-also-a-design-pattern
+
+http://james-iry.blogspot.ch/2007/09/monads-are-elephants-part-1.html
+
+https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/Monad.scala
+
+
+http://blog.brakmic.com/writing-monads-in-scala-with-spark-notebook/
+http://usethiscode.blogspot.com/2015/10/spark-dataframes-transformations-with.html
+https://github.com/PawelWlodarski/blog/blob/master/src/main/scala/pl/pawelwlodarski/spark/functionalchain/ChainOnstateMonad.scala
+
+http://debasishg.blogspot.com/2008/03/monads-another-way-to-abstract.html
+-->
+
+---
+
+#Reduction of Lists, Part 2
+
+    !scala
+    for {
+      i <- List(0, 1)
+      j <- List(2, 3)
+      k <- List(4, 5)
+    } yield(i * j * k)
+
+    List(0, 1) flatMap {
+      i => List(2, 3) flatMap {
+        j => List(4, 5) map {
+          k => i * j * k
+        }
+      }
+    }
+
+---
+
+The key abstraction is the flatMap, which binds the computation through chaining. Each invocation of flatMap returns the same data structure type (but of different value), that serves as the input to the next command in chain.
+
+---
+
+In the above snippet, `flatMap` takes as input a closure `A => List[B]` and returns a `List[B]`.
+
+The important point to note is that all flatMaps take the same closure type as input and return the same type as output. This is what "binds" the computation thread - every item of the sequence in the for-comprehension has to honor this same type constraint.
+
+---
+
+
+
+---
+
+
+The biggest power of monads is the ability to combine diverse monadic operations to design modular and extensible code.
+
+The following snippet gives an example that combines a List monad and Maybe monad within the same for-comprehension block :
+
+---
+
+    !scala
+    val list = List("India", "Japan", "France", "Russia")
+    val capitals =
+      Map("India" -> "New Delhi", "Japan" -> "Tokyo", "France" -> "Paris")
+
+    for {
+      i <- list
+      j <- capitals get(i) orElse(Some("None"))
+    } yield(j)
+    //List[String] = List(New Delhi, Tokyo, Paris, None)
+
+---
+
+The first operation of the sequence is one on a List monad, while the next one is on a Maybe monad.
+
+    !scala
+    list flatMap {
+      i => capitals.get(i).orElse(Some("None")) map {
+        j => j
+      }
+    }
+
+---
+
+#Lecture 8: Purely Functional Parallelism
 
 
 
