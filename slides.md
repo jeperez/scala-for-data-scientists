@@ -88,13 +88,6 @@ Ideally: Develop theories of collections, shapes, strings, …
 
 ---
 
-
-[http://www.scala-lang.org/documentation/api.html](http://www.scala-lang.org/documentation/api.html)
-
-![](img/scala-classes.jpg)
-
----
-
 #Vals and Vars
 
     scala> val two = 1 + 1
